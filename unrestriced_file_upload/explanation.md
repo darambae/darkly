@@ -3,7 +3,7 @@
 - **Category:** (OWASP category)
     WSTG-BUSL-08
 - **Location:**
-    /profile/{userId}
+    /profile/me/settings
 - **Discovery:** (What clue made you suspect it?)
   In the source, the following line is found. "v1.3.3 — wil — quick fix on file upload (removed the whitelist entirely)"
 - **Steps to Reproduce:** (Step by step, so anyone can follow along)

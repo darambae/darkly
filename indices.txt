@@ -1,0 +1,52 @@
+INDICES REPÉRÉS DANS LA CONSOLE ET LE HTML
+
+Source : extraits copiés par Kelly le 16 octobre 2026.
+Les commentaires et messages de console sont des pistes, pas des failles confirmées.
+Cocher chaque ligne après l'avoir examinée dans le navigateur.
+
+CONSOLE
+
+[ ] 1. Indice « The rabbit hole starts where the robots tell you not to go » : penser à robots.txt.
+[ ] 2. Indice « Read the HTML source » : lire les commentaires HTML où wil, emilie et d'autres sont cités.
+[ ] 3. Indice « sophie is level 42 » : comparer avec darkly42.sophie(), qui répond « level: 42, role: god, advice: earn it ».
+[ ] 4. darkly42.help() propose hint(), whoami(), ls(), version(), wil() et sophie(). wil() n'a pas encore été appelé dans l'extrait.
+[ ] 5. darkly42.whoami() affiche une session sous forme de JWT et « definitely not a visitor ». Vérifier à quel compte correspond la session. Ne pas copier le jeton complet dans le dépôt.
+[ ] 6. darkly42.ls() est présenté comme une visite fictive de /app/ : static/, templates/, resources/, data/. Dans l'extrait, la fonction a été affichée sans être exécutée (ls au lieu de ls()).
+[ ] 7. darkly42.version() révèle les versions de l'application (1.3.7) et de PocketBase (0.22.4), avec une note disant que cet objet ne devrait pas être exposé en production.
+[ ] 8. Les logs annoncent un gestionnaire de session, un backend PocketBase sur 127.0.0.1:8090 et un déploiement qui aurait « corrigé des problèmes de session ».
+[ ] 9. Les logs signalent 7 tickets en retard attribués à wil. Ils donnent du contexte, sans démontrer une faille.
+
+HTML
+
+[ ] 10. Faille déjà observée : la page /profile/k1asdfeditojrb4 envoie la note privée et le flag de wil alors que la session affichée est celle de jdoe. Voir walkthrough.md.
+[ ] 11. Commentaire de dorian : les identifiants des profils /profile/<id> sont présents dans les liens du site.
+[ ] 12. Commentaire de sophie : l'achievement « Curious », lié à la lecture du code source, « n'est pas seulement décoratif ».
+[ ] 13. Les liens des « Level buddies » pointent vers /api/users, même si leurs libellés sont des pseudos différents.
+[ ] 14. Les liens du pied de page passent par /redirect?next=... pour aller vers des sites externes.
+[ ] 15. TODO de wil : supprimer des en-têtes de débogage avant la version 1.4.
+[ ] 16. TODO de sophie : passer le cookie de session à httponly=true (ticket #4201).
+[ ] 17. TODO d'emilie : remplacer stdlib xml.etree par defusedxml.
+[ ] 18. NOTE : /internal/config est annoncé comme réservé à localhost.
+[ ] 19. Journal de déploiement v1.3.7 : sophie aurait corrigé la gestion des sessions ; wil conteste ce correctif.
+[ ] 20. Journal de déploiement v1.3.6 : une « télémétrie » ajoutée par wil n'est décrite que comme un console.log.
+[ ] 21. Journal de déploiement v1.3.5 : emilie a signalé 12 problèmes ; wil en a fermé 11 sans correction.
+[ ] 22. Journal de déploiement v1.3.4 : defusedxml a été désactivé temporairement.
+[ ] 23. Journal de déploiement v1.3.3 : la liste des types de fichiers autorisés pour l'envoi a été supprimée.
+[ ] 24. Journal de déploiement v1.2.0 : un ancien secret JWT était faible ; le commentaire cite aussi son remplacement. Ce commentaire seul ne prouve pas l'état actuel de la sécurité des jetons.
+[ ] 25. Pages visibles dans la navigation : /, /projects, /forum, /newsletter et /agenda. Elles restent à cartographier.
+[ ] 26. Le HTML charge /static/js/console_eggs.js, le script qui produit les messages et fonctions de la console.
+
+API /api/users
+
+[ ] 27. La réponse copiée de /api/users énumère neuf comptes avec leurs identifiants, pseudos, adresses mail, rôles, niveaux et campus. Cela révèle des informations sur les utilisateurs ; vérifier séparément si cette liste est accessible sans autorisation.
+[ ] 28. Les identifiants de jdoe (z4p1cnx47mfy50f) et de wil (k1asdfeditojrb4) permettent de relier cette liste aux profils déjà repérés. La réponse indique aussi sophie avec le rôle « god » et le niveau 42, et moderator avec le rôle « student » malgré son pseudo : ce sont des pistes, pas des droits vérifiés.
+
+À NE PAS CONFONDRE AVEC UNE FAILLE
+
+- L'image /static/uploads/default.png renvoie 404 : c'est une ressource manquante, pas une preuve de vulnérabilité.
+- darkly42.will() renvoie une erreur parce que la commande proposée est wil(), avec un seul « l ».
+- Le message « Chrome's Built-In AI features » vient du navigateur ou d'une extension, pas nécessairement du site Darkly.
+- « Unauthorized access is logged » est un message affiché ; il ne prouve pas à lui seul que la journalisation fonctionne.
+
+donnée accessible via l'url : "http://localhost:4942/forum/bbeo32ucx0a65b8" : 
+    référent réseau pour l'équipe : "dmFsaWRhdGlvbl9rZXk9NDJuZXR3b3Jr"

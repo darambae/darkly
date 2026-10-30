@@ -1,7 +1,0 @@
-[ ] Inspecter les en-têtes de réponse — Comparer une page publique et une page authentifiée.
-[ ] Identifier le cookie de session — Vérifier HttpOnly, Secure, SameSite et le renouvellement après connexion.
-[ ] Observer la console JavaScript — Rechercher les messages de télémétrie et de débogage.
-[ ] Tester l'accès à /internal/config — Noter le statut HTTP et le contenu éventuel.
-[ ] Rechercher des JWT — Identifier leur emplacement, leur algorithme et leurs claims.
-[ ] Explorer l'import XML — Observer le comportement avec du XML valide puis malformé.
-[ ] Explorer l'upload de fichiers — Vérifier les types acceptés et le stockage.

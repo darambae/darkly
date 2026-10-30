@@ -1,0 +1,24 @@
+suite à l'indice qui suggérait que httponly était inactif,
+je me suis log avec le mail de joe : jdoe@student.42.tech et le nv mdp : password42!
+avec le mdp modifié en utilisant la faille du mot de passe oublié 
+puis dans console j'ai fait : 
+"document.cookie
+'session=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ6NHAxY254NDdtZnk1MGYiLCJsb2dpbiI6Impkb2UiLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc5Mzg3NDk2OH0.1Hw5kDN3ZJ3rvgHhwdOm3ZaEisJSNpQk_AQJrtBAhGk'"
+
+si on le décrypte, on obtient : 
+le header :
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+le payload:
+{
+  "sub": "z4p1cnx47mfy50f",
+  "login": "jdoe",
+  "role": "student",
+  "exp": 1793874968
+}
+
+=> infos lisibles sans clé secrète
+
+-> tester si on modifie le role du student, est-ce que ça suffit a lui octroyer les privilèges

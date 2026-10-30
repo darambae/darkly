@@ -12,6 +12,19 @@ CONSOLE
 [ ] 4. darkly42.help() propose hint(), whoami(), ls(), version(), wil() et sophie(). wil() n'a pas encore été appelé dans l'extrait.
 [ ] 5. darkly42.whoami() affiche une session sous forme de JWT et « definitely not a visitor ». Vérifier à quel compte correspond la session. Ne pas copier le jeton complet dans le dépôt.
 [ ] 6. darkly42.ls() est présenté comme une visite fictive de /app/ : static/, templates/, resources/, data/. Dans l'extrait, la fonction a été affichée sans être exécutée (ls au lieu de ls()).
+    => lorsqu'on utilise l'url localhost:4942/app on arrive sur une page d'erreur voir (app.png) 
+    => localhost:4942/robots.txt : 
+"
+User-agent: *
+Disallow: /admin => redirige vers login
+Disallow: /staff => voir staff.png -> infos sur les status du server
+Disallow: /internal => voir internal.png (même page que /app) -> indice robots.txt et /staff  ·  /backup  ·  /internal/config  ·  /_/
+Disallow: /backup
+Disallow: /api/grades
+Disallow: /_/
+Disallow: /static/uploads/
+"
+
 [ ] 7. darkly42.version() révèle les versions de l'application (1.3.7) et de PocketBase (0.22.4), avec une note disant que cet objet ne devrait pas être exposé en production.
 [ ] 8. Les logs annoncent un gestionnaire de session, un backend PocketBase sur 127.0.0.1:8090 et un déploiement qui aurait « corrigé des problèmes de session ».
 [ ] 9. Les logs signalent 7 tickets en retard attribués à wil. Ils donnent du contexte, sans démontrer une faille.

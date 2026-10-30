@@ -1,0 +1,12 @@
+dans le header, on trouve l'info suivante :
+"x-pocketbase: http://localhost:8090"
+PocketBase est un backend qui fournit notamment une base de données, une API et des mécanismes d'authentification.
+
+Le serveur Darkly divulgue ici une adresse potentielle de ce service
+voir image faille4_pocketbase.png pour observer le résultat lorsqu'on tente d'accéder à cette page
+=> Le service PocketBase répond bien sur localhost:8090. Le 404 Not Found ne signifie pas qu'il ne fonctionne pas : cela signifie que la route / n'existe pas, ou n'est pas exposée.
+donc le serveur a répondu avec un objet json 
+
+test à faire : vérifier si l'API PocketBase est accessible avec une route de diagnostic
+http://localhost:8090/api/health
+=> réponse status 200

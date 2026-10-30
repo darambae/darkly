@@ -1,0 +1,44 @@
+sur la page "http://localhost:4942/forum/o9ah3kb7vo64obl"
+j'ai trouvé ça dans le html sur la console : 
+"<!-- BUILD: 1.3.7-prod | Campus: wilcity | 2042-12-01 -->
+<!-- TODO: remove debug headers before v1.4 release — wil -->
+<!-- TODO: migrate session cookie to httponly=true — ticket #4201 — sophie -->
+<!-- TODO: replace stdlib xml.etree with defusedxml — emilie reported issue -->
+<!-- NOTE: /internal/config restricted to localhost only. do not expose. -->
+<!-- DEPLOY LOG
+  v1.3.7 — sophie  — "fixed session handling" (she didn't, wil checked)
+  v1.3.6 — wil     — "added telemetry" (it's just a console.log)
+  v1.3.5 — emilie  — "filed 12 issues" (wil closed 11 as wontfix)
+  v1.3.4 — wil     — "disabled defusedxml temporarily" (that was 6 months ago)
+  v1.3.3 — wil     — "quick fix on file upload" (removed the whitelist entirely)
+  v1.2.0 — sophie  — initial platform. jwt secret was "42". wil changed it to "42network". progress."
+
+ce qui donne plusieurs indices sur d'éventuelles vulnérabilités:
+1. "TODO: remove debug headers before v1.4 release" => suggère que des infos sont diffusées dans les headers pour du débug avant la version 1.4 et on est actuellement en 1.3.7
+    -> inspecter le header des réponses sans connexion et avec connexion pour trouver d'autres infos
+2. "TODO: migrate session cookie to httponly=true" => suggère que httponly n'est pas actif (donc javascript peut lire le cookie)
+    -> si faille xss, tester '<script>document.cookie<script\>' dans un commentaire pour récupérer les cookies
+3. "TODO: replace stdlib xml.etree with defusedxml" => signifie que le server utilise actuelle la bibliothèque xml.etree pour lire et manipuler les fichiers xml (au lieu de defusedxml qui permet d'analyser les xml non fiables) 
+    - envoyer un xml qui modifie les données dans la database (mdp, statut ou autre)
+4. "NOTE: /internal/config restricted to localhost only. do not expose." => suggère qu'il suffit d'être en localhost pour accéder à ce fichier
+    -> visiter http://localhost:4942/internal/config et relever le code HTTP (200, 403, 404, etc.).
+5. ""fixed session handling" (she didn't, wil checked)" => la gestion de session n'est pas corrigée
+    -> vulnérabilité sur les sessions à tester : 
+            id de session non renouvelée après connexion/déconnexion
+            une session reste valide trop longtemps
+            un id de session volé peutêtre réutilisé
+            les droits associés à la session ne sont pas correctement actualisés
+    -> comparer l'id avant et après co/déco
+
+6. ""added telemetry" (it's just a console.log)" => la télémétrie, c'est toutes les infos de fonctionnement d'une app
+                                                   nbr de connexions / temps de réponse des requêtes / erreurs rencontrées/ parcours des utilisateurs/ performances
+                                                   ces infos semblent être envoyées dans la console du navigateur
+    -> naviguer dans l'appli avec la console ouverte pour voir si des infos intéressantes s'affichent                                                
+7. ""filed 12 issues" (wil closed 11 as wontfix)" => 11 pb sur 12 ont été fermés sans être corrigés
+8. ""disabled defusedxml temporarily" (that was 6 months ago)" => renforce l'indice 3
+9. ""quick fix on file upload" (removed the whitelist entirely)" => correctif à l'importation de fichier, liste blanche supprimée (contient le type d'extension autorisées)
+    -> tester d'envoyer des fichier avec différents types d'extension 
+10. "initial platform. jwt secret was "42". wil changed it to "42network". progress."" => la clé jwt pourrait être '42' ou '42network'
+    -> trouver un jwt dans les cookies, stockage local ou en-tête authorisation
+       décoder le header et le playload
+       examiner l'algorithm déclaré

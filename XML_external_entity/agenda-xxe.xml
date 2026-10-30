@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE agenda [
+  <!ENTITY config SYSTEM "http://127.0.0.1:4942/internal/config">
+]>
+<agenda>
+  <event>
+    <title>&config;</title>
+    <date>2026-10-30</date>
+  </event>
+</agenda>

@@ -1,0 +1,5 @@
+suite à l'indice html, j'ai testé la faille xss en collant ce script javascript dans un commentaire dans le forum:
+"<script>alert('XSS test')</script>"
+en l'absence de faille le texte apparait tel quel dans le commentaire
+si faille xss, le script est interprété et c'est le cas (voir image faille xss)
+ici le script est exécuté et stocké car il s'applique également sur les autres profils

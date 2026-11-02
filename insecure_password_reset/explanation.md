@@ -16,4 +16,4 @@
 - **Remediation:** (How should it be fixed?)
   - Use unpredictable encryption (e.g. UUID ) instead of md5.
   - Don't expose users' email addresses publicly.
-  - Don't include the token in the url
+  - Don't include the token in the url.

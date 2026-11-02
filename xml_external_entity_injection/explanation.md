@@ -1,4 +1,4 @@
-## Vulnerability N3: XML External Entity (XXE) Injection / SSRF
+# XML External Entity Injection
 
 - **Category:**
   - OWASP A05:2021 – Security Misconfiguration
@@ -20,7 +20,7 @@
 
 - **Steps to Reproduce:**
   1. Login and Navigate to the calendar XML import functionality("http://localhost:4942/agenda")
-  2. Create a file named `agenda-xxe.xml` with the following content:
+  2. Create a file named `agenda_xxe.xml` with the following content:
 
      ```xml
      <?xml version="1.0" encoding="UTF-8"?>

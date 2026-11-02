@@ -1,5 +1,5 @@
 
-## Vulnerability N6: Missing HttpOnly Flag on Session Cookie
+# Security Misconfiguration: Session Cookie Without HttpOnly
 
 - **Category:**
   - OWASP A05:2021 – Security Misconfiguration

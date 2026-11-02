@@ -1,4 +1,4 @@
-## Vulnerability N3: XSS & Cookie Exfiltration Prevention 
+# Stored Cross Site Scripting
 
 - **Category:** (OWASP category)
     WSTG 4.7 — Stored XSS

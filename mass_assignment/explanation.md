@@ -1,5 +1,5 @@
 
-## Vulnerability N7: Privilege Escalation via Mass Assignment
+# Mass Assignment: Profile Role Change
 
 - **Category:**
   - OWASP A01:2021 – Broken Access Control

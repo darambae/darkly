@@ -1,4 +1,4 @@
-## Vulnerability N5: Sensitive Information Disclosure via Grades API
+# Excessive Data Exposure: Grades API
 
 - **Category:**
   - OWASP A01:2021 – Broken Access Control (if the endpoint is accessible without the required authorization)

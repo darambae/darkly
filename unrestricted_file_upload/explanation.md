@@ -1,4 +1,4 @@
-## Vulnerability N2: Unrestricted File Upload
+# Unrestricted File Upload
 
 - **Category:** (OWASP category)
     WSTG-BUSL-08

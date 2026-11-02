@@ -12,12 +12,12 @@ CONSOLE
 [ ] 4. darkly42.help() propose hint(), whoami(), ls(), version(), wil() et sophie(). wil() n'a pas encore été appelé dans l'extrait.
 [ ] 5. darkly42.whoami() affiche une session sous forme de JWT et « definitely not a visitor ». Vérifier à quel compte correspond la session. Ne pas copier le jeton complet dans le dépôt.
 [ ] 6. darkly42.ls() est présenté comme une visite fictive de /app/ : static/, templates/, resources/, data/. Dans l'extrait, la fonction a été affichée sans être exécutée (ls au lieu de ls()).
-    => lorsqu'on utilise l'url localhost:4942/app on arrive sur une page d'erreur voir (app.png) 
+    => lorsqu'on utilise l'url localhost:4942/app on arrive sur une page d'erreur voir (app_page.png) 
     => localhost:4942/robots.txt : 
 "
 User-agent: *
 Disallow: /admin => redirige vers login
-Disallow: /staff => voir staff.png -> infos sur les status du server
+Disallow: /staff => voir ../mass_assignment/staff_access_hint.png -> infos sur les status du server
 Disallow: /internal => voir internal.png (même page que /app) -> indice robots.txt et /staff  ·  /backup  ·  /internal/config  ·  /_/
 Disallow: /backup
 Disallow: /api/grades

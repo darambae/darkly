@@ -45,10 +45,10 @@
   6. Send the request.
   7. Observe that the server accepts the modification.
   8. Verify that the account's role has changed from `student` to `cadet`.
-  9. Access the staff functionality to confirm that the new privileges are applied.
+  9. Go to `http://localhost:4942/staff/dashboard` and find the flag in the warning `Cadet+ access granted — internal staff flag: `
 
 - **Flag:**
-  No specific flag confirmed yet for this endpoint.
+  `FLAG{just_p4tch_y0ur_0wn_r0l3_lol}`
 
 - **Cause:**
   - **Mass Assignment:** The profile update endpoint accepts a sensitive field (`role`) supplied directly by the client.

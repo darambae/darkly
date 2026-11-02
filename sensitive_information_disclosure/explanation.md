@@ -7,11 +7,8 @@
   - CWE-200 – Exposure of Sensitive Information
 
 - **Location:**
-  - Calendar XML import functionality (initial entry point)
-  - `/internal/config` (exposed administrator credentials)
   - PocketBase administration interface: `http://localhost:8090/_/`
   - PocketBase administrator authentication API: `POST http://localhost:8090/api/admins/auth-with-password`
-  - Staff dashboard: `http://localhost:4942/staff/dashboard`
 
 - **Discovery:**
   The previous XXE vulnerability allowed the internal `/internal/config` endpoint to be read through the calendar XML import feature. Its response disclosed PocketBase administrator credentials. The response headers also identified a PocketBase backend at `http://localhost:8090`. Testing the PocketBase administration interface and the legacy administrator authentication endpoint confirmed that the disclosed credentials were valid.
@@ -19,13 +16,14 @@
 - **Steps to Reproduce:**
   1. Exploit the previously documented calendar XML XXE vulnerability to retrieve the configuration from `/internal/config`.
   2. Identify the PocketBase administrator email and password in the configuration response. Do not include the actual password in the report.
+   `{"jwt_secret":"42network","pb_admin_email":"admin@42network.local","pb_admin_password":"Darkly42Admin!","app_version":"1.0.0","campus":"wilcity","darkly_flag":"FLAG{d3fus3dxml_n3xt_spr1nt_pr0m1s3}"}`
   3. Open `http://localhost:8090/_/` and sign in with those administrator credentials. Alternatively, send a `POST` request to `http://localhost:8090/api/admins/auth-with-password` with a JSON body containing `identity` and `password`. The observed API response was `200 OK` and included an administrator token.
   4. In the PocketBase administration interface, open the users collection and locate the test account `jdoe`.
   5. Change the `role` field of `jdoe` from `student` to `god` and save the record.
-  6. Sign in to Darkly as `jdoe` and navigate to `http://localhost:4942/staff/dashboard`.
-  7. Confirm that the account now has access to the staff dashboard and that the internal staff flag is displayed.
+  6. Go to `internal_audit` collection
+  7. Find a record with a note with the flag : `god-tier export OK — flag retained for the security audit:`.
 
-- **Flag:** `FLAG{just_p4tch_y0ur_0wn_r0l3_lol}`
+- **Flag:** `FLAG{th3_und3rsc0r3_sl4sh_kn0ws_th3_w4y}`
 
 - **Cause:**
   - **Credential Exposure:** The internal configuration endpoint contained valid PocketBase administrator credentials and was reachable through an XXE-based SSRF.

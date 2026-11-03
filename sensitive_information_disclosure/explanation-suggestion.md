@@ -21,7 +21,7 @@ x-pocketbase: http://localhost:8090
 This header alone is an information disclosure clue; it does not prove administrator access.
 
 ## Steps to Reproduce
-1. Perform Finding 01's calendar import using `./xml_external_entity_injection/agenda_xxe.xml`.
+1. Perform XXE calendar import using `./xml_external_entity_injection/agenda_xxe.xml`.
 2. Examine the event containing the returned `/internal/config` data.
 3. Confirm that the response includes the following **redacted** fields:
 
@@ -32,14 +32,14 @@ This header alone is an information disclosure clue; it does not prove administr
   "pb_admin_password": "[REDACTED]",
   "app_version": "1.0.0",
   "campus": "wilcity",
-  "darkly_flag": "[SEE FINDING 01]"
+  "darkly_flag": "[Privilege escalation attack]"
 }
 ```
 
 4. Record evidence of the disclosure without placing the actual password or signing secret in the Markdown report.
 
 ## Observed Result
-An internal configuration response containing valid privileged credentials was made visible to a user who could access the XML import functionality. The credentials were later accepted by the PocketBase administrator authentication API (see [Attack Chain 03](03_Testing_for_Privilege_Escalation_Attack_Chain.md)).
+An internal configuration response containing valid privileged credentials was made visible to a user who could access the XML import functionality. The credentials were later accepted by the PocketBase administrator authentication API.
 
 ## Root Cause
 Sensitive runtime configuration was returned by an application endpoint, including privileged credentials in plaintext. The documented localhost-only restriction was not a sufficient protective boundary once another application feature could be induced to request the endpoint.
@@ -59,7 +59,3 @@ This finding is **distinct in root cause** from the XML parser flaw, because eli
 - Enforce authentication and authorization on internal diagnostic/configuration endpoints, or remove them from production deployments.
 - Apply network restrictions as defense in depth; do not rely only on the caller being `localhost`.
 - Add response filtering and tests verifying that internal configuration endpoints never return secrets.
-
-## Reference
-- OWASP Top 10 (2021) — [A05: Security Misconfiguration](https://owasp.org/Top10/A05_2021-Security_Misconfiguration/)
-- [CWE-200: Exposure of Sensitive Information](https://cwe.mitre.org/data/definitions/200.html)

@@ -12,16 +12,17 @@
 
 - **Discovery:**
   - After gaining access to the Staff Dashboard with the `jdoe` account (whose role had been changed to `god` through the previously documented PocketBase administration compromise), the dashboard displayed links to API resources.
-  - Opening `/api/grades` returned raw JSON records, including expanded project information.
-  - One expanded `project` object contained a `flag` field for the Darkly project.
+  - `<!-- sophie: /api/docs-internal still accessible without staff check — TODO fix in v1.4 -->`
+  ```
+    "grades":{"fields":["id","student","project","score","flag"],"note":"flag field accessible via GET /api/grades?student={id}"}
+  ```
 
 - **Steps to Reproduce:**
-  1. Sign in to Darkly using the lab account `jdoe`, previously assigned the `god` role.
-  2. Navigate to `http://localhost:4942/staff/dashboard`.
-  3. Open the **API grades** link, or navigate to `http://localhost:4942/api/grades`.
-  4. Inspect the returned JSON array.
-  5. Find the record whose `expand.project.name` is `Darkly` (or whose `expand.project.slug` is `darkly`).
-  6. Read the `flag` property inside the expanded project object.
+  1. Sign in to Darkly using a student account
+  2. Navigate to `http://localhost:4942/api/grades?student=z4p1cnx47mfy50f`.(This is jdoe's id)
+  3. Inspect the returned JSON array.
+  4. Find the record whose `expand.project.name` is `Darkly` (or whose `expand.project.slug` is `darkly`).
+  5. Read the `flag` property inside the expanded project object. (!This flag is only found in jdoe's grade)
 
 - **Flag:** `FLAG{md5_1s_4_n4m3pl4t3_n0t_4_l0ck}`
 
@@ -36,7 +37,3 @@
   - **Apply Field-Level Access Controls:** Exclude sensitive project fields from API serialization for users who do not explicitly need them.
   - **Test Different Roles:** Add automated checks for anonymous, student, staff, and administrator access to the endpoint.
   - **Protect Challenge Secrets:** Keep flags in a separate, access-controlled store rather than general-purpose project records.
-
-**Evidence:** The browser response from `GET /api/grades` displayed a JSON array with an expanded Darkly project containing the flag. The screenshot was taken while the `jdoe` account had already been promoted to `god`.
-
-**Note:** The flag text references MD5, but the observed response alone does not demonstrate an MD5-related vulnerability. This report describes the verified information disclosure and does not claim a cryptographic weakness without further evidence.

@@ -2,10 +2,9 @@
 
 ## Current results
 
-- **Confirmed security findings:** 10
-- **Flags tied to confirmed findings:** 9
+- **Confirmed security findings:** 11
+- **Flags tied to confirmed findings:** 10
 - **Additional flag observed during follow-up testing:** 1
-- **Item still requiring verification:** `/api/grades`
 
 The counts distinguish root-cause findings from attack-chain impact. The PocketBase administrator attack chain demonstrates the impact of XXE and exposed credentials, so it is not counted again as an independent vulnerability. The `/api/grades` observation is retained separately because the flag was visible for `jdoe`, but changing another account's role to `god` did not reproduce it.
 
@@ -23,6 +22,6 @@ Navigation, HTML comments, browser behavior, and `robots.txt` revealed useful le
 | 6 | [XML External Entity Injection](06_xml_external_entity_injection/explanation.md) | XML import fetched `/internal/config` through an external entity | `FLAG{d3fus3dxml_n3xt_spr1nt_pr0m1s3}` |
 | 7 | [Sensitive Information Disclosure](07_sensitive_information_disclosure/explanation.md) | Exposed PocketBase administrator credentials enabled privileged backend access | `FLAG{th3_und3rsc0r3_sl4sh_kn0ws_th3_w4y}` from the verified impact chain |
 | 8 | [Mass Assignment](08_mass_assignment/explanation.md) | A student could change their own role to `cadet` through `PATCH /api/profile` | `FLAG{just_p4tch_y0ur_0wn_r0l3_lol}` |
-| 9 | [Excessive data exposure](09_excessive_data_exposure/explanation.md) |  | `FLAG{csrf_4ny_0r1g1n_1s_w3lc0m3}` |
+| 9 | [Excessive data exposure](09_excessive_data_exposure/explanation.md) |  | `FLAG{md5_1s_4_n4m3pl4t3_n0t_4_l0ck}` |
 | 10 | [Cross-Site Request Forgery Protection Weakness](10_cross_site_request_forgery/explanation.md) | The server accepted a state-changing request with an external `Origin` and no CSRF token | `FLAG{csrf_4ny_0r1g1n_1s_w3lc0m3}` |
-| 11 | [Path Traversal](path_traversal/explanation.md) | `../` escaped the download directory and exposed `data/private_notes.txt` | `FLAG{d0t_d0t_sl4sh_4ll_th3_w4y_d0wn}` |
+| 11 | [Path Traversal](11_path_traversal/explanation.md) | `../` escaped the download directory and exposed `data/private_notes.txt` | `FLAG{d0t_d0t_sl4sh_4ll_th3_w4y_d0wn}` |

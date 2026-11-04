@@ -1,4 +1,4 @@
-# Testing for Privilege Escalation — Compromised PocketBase Administrator Attack Chain
+# Privilege Escalation: Compromised PocketBase Administrator Attack Chain
 
 ## Classification
 - **OWASP WSTG v4.2:** WSTG-ATHZ-03 — Testing for Privilege Escalation

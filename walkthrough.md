@@ -1,60 +1,95 @@
 # Darkly audit walkthrough
 
- **Total number of Flags recovered** 7: 
- **Total number of Vulnerabilities recovered** 9:
+## Current results
+
+- **Confirmed security findings:** 10
+- **Flags tied to confirmed findings:** 8
+- **Additional flags observed during follow-up testing:** 2
+- **Item still requiring verification:** `/api/grades`
+
+The counts distinguish root-cause findings from attack-chain impact. The PocketBase administrator attack chain demonstrates the impact of XXE and exposed credentials, so it is not counted again as an independent vulnerability. The `/api/grades` observation is retained separately because the flag was visible for `jdoe`, but changing another account's role to `god` did not reproduce it.
 
 ## Reconnaissance
 
-We reviewed the navigation, HTML comments, browser console, and `robots.txt`. The latter lists routes including `/staff`, `/internal`, `/backup`, and `/api/grades`; listing a route is only a clue. The HTML comments mention a session cookie without `HttpOnly`, an XML parser that does not use `defusedxml`, and a removed file-upload allowlist. The detailed notes and screenshots are in [reconnaissance](reconnaissance/reconnaissance_notes.txt).
+Navigation, HTML comments, browser behavior, and `robots.txt` revealed useful leads. In particular, `robots.txt` listed `/staff`, `/internal`, `/backup`, and `/api/grades`. A listed route is a clue and does not establish a vulnerability by itself. HTML comments also mentioned a session cookie without `HttpOnly`, an unsafe XML parser, and a removed upload allowlist.
 
-| Finding | Breach | Recorded flag |
-| --- | --- | --- |
-| 1 | [Insecure Direct Object References](insecure_direct_object_references/explanation.md) | `FLAG{1d0r_ur_pr0f1l3_1s_m1n3}` |
-| 2 | [Weak Password Change or Reset Functionalities](weak_password_change_or_reset_functionalities/explanation.md) | `FLAG{r3s3t_t0k3n_w4s_just_md5_lol}` |
-| 3 | [Unrestricted File Upload](unrestricted_file_upload/explanation.md) | `FLAG{unr3str1ct3d_upl0ad_g0_brrr}` |
-| 4 | [Stored Cross Site Scripting](stored_cross_site_scripting/explanation.md) | `FLAG{xss_st0r3d_1s_n0t_4_f34tur3_w1l}` |
-| 5 | [Security Misconfiguration](security_misconfiguration/explanation.md) | None recorded |
-| 6 | [XML External Entity Injection](xml_external_entity_injection/explanation.md) | `FLAG{d3fus3dxml_n3xt_spr1nt_pr0m1s3}` |
-| 7 | [Sensitive Information Disclosure](sensitive_information_disclosure/explanation.md) | `FLAG{just_p4tch_y0ur_0wn_r0l3_lol}` after role change |
-| 8 | [Mass Assignment](mass_assignment/explanation.md) | None confirmed |
-| 9 | [Excessive Data Exposure](excessive_data_exposure/explanation.md) | `FLAG{md5_1s_4_n4m3pl4t3_n0t_4_l0ck}` |
+| # | Finding | Verified result | Flag |
+| --- | --- | --- | --- |
+| 1 | [Insecure Direct Object References](01_insecure_direct_object_references/explanation.md) | Another user's private profile note was readable | `FLAG{1d0r_ur_pr0f1l3_1s_m1n3}` |
+| 2 | [Weak Password Change or Reset Functionalities](02_weak_password_change_or_reset_functionalities/explanation.md) | Predictable MD5-based reset token allowed an account password reset | `FLAG{r3s3t_t0k3n_w4s_just_md5_lol}` |
+| 3 | [Unrestricted File Upload](03_unrestricted_file_upload/explanation.md) | The avatar feature accepted a non-image file | `FLAG{unr3str1ct3d_upl0ad_g0_brrr}` |
+| 4 | [Stored Cross Site Scripting](04_stored_cross_site_scripting/explanation.md) | Stored forum content executed JavaScript | `FLAG{xss_st0r3d_1s_n0t_4_f34tur3_w1l}` |
+| 5 | [Session Cookie Without HttpOnly](05_security_misconfiguration/explanation.md) | JavaScript could read the session cookie | None |
+| 6 | [XML External Entity Injection](06_xml_external_entity_injection/explanation.md) | XML import fetched `/internal/config` through an external entity | `FLAG{d3fus3dxml_n3xt_spr1nt_pr0m1s3}` |
+| 7 | [Sensitive Information Disclosure](07_sensitive_information_disclosure/explanation.md) | Internal configuration exposed valid PocketBase administrator credentials | None separate from the XXE response |
+| 8 | [Mass Assignment](08_mass_assignment/explanation.md) | A student could change their own role to `cadet` through `PATCH /api/profile` | `FLAG{just_p4tch_y0ur_0wn_r0l3_lol}` |
+| 9 | [Cross-Site Request Forgery Protection Weakness](10_cross_site_request_forgery/explanation.md) | The server accepted a state-changing request with an external `Origin` and no CSRF token | `FLAG{csrf_4ny_0r1g1n_1s_w3lc0m3}` |
+| 10 | [Path Traversal](path_traversal/explanation.md) | `../` escaped the download directory and exposed `data/private_notes.txt` | `FLAG{d0t_d0t_sl4sh_4ll_th3_w4y_d0wn}` |
 
 ## 1. Insecure Direct Object References
 
-Open a conversation and follow the link to `wil`'s profile at `http://localhost:4942/profile/k1asdfeditojrb4` while signed in as another user. The profile response reveals `wil`'s private note and its flag. The profile ID is obtainable from site links, but possession of the ID should not authorize access to a private note. The server should check note ownership before returning it.
+Open `wil`'s profile at `http://localhost:4942/profile/k1asdfeditojrb4` from the forum while using another account. The response exposes `wil`'s private note and flag. A record identifier may locate a profile, but the server must separately authorize access to private fields.
 
 ## 2. Weak Password Change or Reset Functionalities
 
-The notes describe a password reset using a publicly visible email address without proving control of that inbox. The [finding](weak_password_change_or_reset_functionalities/explanation.md) records that the reset token is the MD5 hash of the email address and that the `benjamin@student.42.tech` account was used to recover a flag. A predictable token lets someone who knows the address take over the account. Reset tokens should be random, single use, short lived, and delivered through the verified recovery channel.
+The password-reset token is derived by hashing the user's email address with MD5, and the reset flow does not prove control of that email inbox. Anyone who knows an account email can calculate the predictable token and reset its password. Reset tokens should be random, single use, short lived, and delivered through a verified recovery channel.
 
 ## 3. Unrestricted File Upload
 
-From `/profile/me/settings`, attempt to upload a non-image file as an avatar. The recorded result is that arbitrary file types are accepted and the flag appears. The HTML deployment note says the upload allowlist was removed; the upload observation is the evidence of the breach. The server should allow only required image types, verify their content, limit size, and store them outside executable paths.
+The avatar upload under `/profile/me/settings` accepts file types outside the expected image formats. The server should use an allowlist, inspect the actual file signature, impose size limits, generate server-controlled names, and store uploads where they cannot execute.
 
 ## 4. Stored Cross Site Scripting
 
-Create a forum post containing a harmless test payload such as `<script>alert('XSS test')</script>`. The recorded observation is that the script executes when the stored post is viewed, including from another profile. The [finding](stored_cross_site_scripting/explanation.md) also describes a payload that sends `document.cookie` to `/api/collect`; this combines stored XSS with the cookie misconfiguration below. Render forum content as text or sanitize allowed HTML, and use `HttpOnly` on session cookies.
+A forum post containing a script is stored and executed when the post is viewed. The demonstrated payload can send `document.cookie` to `/api/collect`. This combines stored XSS with the missing `HttpOnly` protection described below. Forum content should be contextually encoded or sanitized before rendering.
 
-## 5. Security Misconfiguration: session cookie
+## 5. Session Cookie Without HttpOnly
 
-Sign in, run `document.cookie` in the browser console, and inspect the `session` cookie in Developer Tools. The recorded observation is that JavaScript can read the JWT because the cookie lacks `HttpOnly`. This raises the impact of XSS, but it is a separate configuration weakness. Set `HttpOnly`, use `Secure` over HTTPS, and choose an appropriate `SameSite` policy.
+After signing in, `document.cookie` returns the session JWT because the `session` cookie lacks `HttpOnly`. This increases the impact of XSS by allowing injected JavaScript to steal the session token. Authentication cookies should use `HttpOnly`, `Secure` when served over HTTPS, and an appropriate `SameSite` policy.
 
 ## 6. XML External Entity Injection
 
-Import the provided [agenda XML](xml_external_entity_injection/agenda_xxe.xml) through `/agenda`. Its external entity asks the server to fetch `http://127.0.0.1:4942/internal/config`. The imported event displays internal configuration, including a flag and administrator credentials. The parser must reject untrusted external entities; sensitive internal endpoints must also enforce authorization.
+Import [agenda_xxe.xml](06_xml_external_entity_injection/agenda_xxe.xml) through `/agenda`. The external entity makes the server request `http://127.0.0.1:4942/internal/config`, and the imported event displays the response. The XML parser must reject DTDs and external entities, and internal endpoints must enforce authentication rather than trusting the source IP alone.
 
-## 7. Sensitive Information Disclosure and privilege escalation
+## 7. Sensitive Information Disclosure
 
-The configuration obtained through the XML import contains PocketBase administrator credentials. The [finding](sensitive_information_disclosure/explanation.md) records a successful administrator sign-in at `http://localhost:8090/_/`, a change of `jdoe`'s role from `student` to `god`, and subsequent access to `/staff/dashboard` and its flag. This demonstrates the impact of exposed credentials. It does not show that PocketBase incorrectly authorized the role change. Remove the XXE path, protect configuration, rotate the exposed credentials, and restrict administrator access.
+The configuration returned through the XXE contains a JWT secret and valid PocketBase administrator credentials. The credentials successfully authenticated to the administration interface at `http://localhost:8090/_/`. Secrets should not be returned by application endpoints; the exposed password and signing secret must be rotated and administrative access should be network restricted.
+
+This disclosure is kept as a separate finding because it exposes reusable administrator credentials, while XXE is the mechanism used to reach the configuration endpoint. The same XXE flag appears in the response, so no additional flag is counted here.
 
 ## 8. Mass Assignment
 
-The `/staff` page hints at `PATCH /api/profile`. With a `student` session, send `{"role":"cadet"}` to that endpoint and inspect the resulting account role. The [finding](mass_assignment/explanation.md) records that the server accepted the role change. This lets an ordinary account assign itself a privileged field. Accept only user-editable profile fields and require a separately authorized operation for role changes. No flag is confirmed for this endpoint.
+Using a student session, send `{"role":"cadet"}` to `PATCH /api/profile`. The server accepts the security-sensitive field, changes the user's role, and permits access to the staff dashboard. Profile updates should allow only ordinary profile fields; role changes require a separate administrator-authorized operation.
 
-## 9. Excessive Data Exposure
+## 9. Cross-Site Request Forgery Protection Weakness
 
-The recorded test opened `/api/grades` while `jdoe` already had the `god` role. The JSON response included an expanded Darkly project object with a `flag` field. Return only fields needed by the grades view and protect flags separately. Because the request used an elevated account, the repository does not establish whether guests or students can read this endpoint.
+`POST /profile/me/settings` accepted an authenticated state-changing request with an arbitrary external `Origin` and without a CSRF token. The change persisted and the response produced the challenge flag.
 
-## Current coverage
+The tested browser did not automatically attach the `SameSite=Lax` session cookie to a cross-site POST. Therefore, the evidence confirms missing server-side CSRF validation, but it does not prove that the tested conventional cross-site form attack succeeds in that browser. The endpoint should verify a CSRF token and validate `Origin`, while retaining `SameSite` as defense in depth.
 
-These notes describe nine distinct findings and seven recorded flag values. The subject requires ten vulnerabilities and six flags for the mandatory part, including four privilege-progression flags. The current records do not establish which four flags form that progression, and the existing explanations do not yet include the reproduction scripts requested by the subject. Those gaps need verification before submission.
+## 10. Path Traversal
+
+The `/backup` response disclosed `x-backup-exclude: data/private_notes.txt`. Supplying traversal segments to `/projects/download?file=...` escaped the intended download directory and returned that internal file. The file contained the recovery flag and a note confirming that the endpoint joins paths without sanitization.
+
+The server should use server-controlled file identifiers or an allowlist. If paths are unavoidable, it must resolve the final canonical path and reject it unless it remains inside the permitted download directory.
+
+## Verified attack-chain impact
+
+The [PocketBase privilege-escalation chain](privilege_escalation_attack/explanation.md) used the administrator credentials exposed through the XXE response. With valid administrator access, `jdoe` was changed from `student` to `god`, and the protected `internal_audit` record revealed:
+
+`FLAG{th3_und3rsc0r3_sl4sh_kn0ws_th3_w4y}`
+
+This proves the impact of the credential compromise. It is not an additional authorization vulnerability because an authenticated PocketBase administrator is expected to perform administrative changes. A separate finding would require evidence that a regular user can perform the same operation without the exposed administrator identity; the mass-assignment finding above independently proves one such self-service transition from `student` to `cadet`.
+
+## `/api/grades`: observed flag, classification not yet confirmed
+
+The saved evidence shows that `/api/grades` returned a Darkly grade record for `jdoe` whose `flag` field contained:
+
+`FLAG{md5_1s_4_n4m3pl4t3_n0t_4_l0ck}`
+
+However, assigning the `god` role to another user did not reproduce the result: that user's grade flags remained empty. This means the `god` role alone does not explain the disclosure. The value may depend on the specific student record, a per-user challenge state, or another condition that has not yet been isolated.
+
+For that reason, [the current grades report](09_excessive_data_exposure/explanation.md) should not yet be counted as a confirmed excessive-data-exposure vulnerability. To confirm it, compare the same grade record under multiple identities and determine whether a user can read a flag they are not intended to receive. If the API returns only each user's legitimately unlocked flag, the behavior is expected rather than a vulnerability.
+
+## Flag accounting
+
+Eight flags are directly associated with the ten confirmed findings. The PocketBase `internal_audit` flag demonstrates the impact of the XXE and credential-disclosure chain. The `/api/grades` flag was observed, but its vulnerability classification remains unconfirmed. This gives ten unique observed flag values in the repository without incorrectly treating every observed flag as an independent vulnerability.

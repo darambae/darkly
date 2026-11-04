@@ -16,9 +16,7 @@ Using curl, a valid session cookie was supplied alongside the modified Origin an
 
 After refreshing the profile page, the submitted changes were confirmed to have persisted.
 
-**Flag:**
-
-`FLAG{csrf_4ny_0r1g1n_1s_w3lc0m3}`
+**Flag:** `FLAG{csrf_4ny_0r1g1n_1s_w3lc0m3}`
 
 **Root Cause:**
 

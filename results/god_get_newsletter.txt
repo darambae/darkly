@@ -1,0 +1,255 @@
+HTTP/1.1 200 OK
+date: Thu, 05 Nov 2026 13:01:35 GMT
+server: uvicorn
+content-length: 13362
+content-type: text/html; charset=utf-8
+x-powered-by: Python/3.11 FastAPI/0.104
+server: uvicorn/0.24.0 Linux
+x-pocketbase: http://localhost:8090
+x-42-internal: campus=paris
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newsletter — 42 Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Kode+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/main.css">
+  
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-mark">42<span class="sidebar-cursor"></span></div>
+    </div>
+
+    
+    <div class="sidebar-user" style="opacity:.3;cursor:default;">
+      <img src="/static/img/default.png" class="sidebar-avatar" alt="">
+      <div style="flex:1;min-width:0;">
+        <div class="sidebar-login">Guest</div>
+        <div style="font-size:10px;color:var(--text-3);margin-top:1px;">Not signed in</div>
+      </div>
+    </div>
+    
+
+    <nav class="sidebar-nav">
+      <a href="/"           class="sidebar-nav-item "><span class="nav-icon">⌂</span>Home</a>
+      <a href="/projects"   class="sidebar-nav-item "><span class="nav-icon">◈</span>Projects</a>
+      <a href="/forum"      class="sidebar-nav-item "><span class="nav-icon">◻</span>Forum</a>
+      <a href="/newsletter" class="sidebar-nav-item active"><span class="nav-icon">✉</span>Newsletter</a>
+      
+      
+      
+    </nav>
+
+    
+    <div class="sidebar-bottom" style="margin-top:auto;">
+      <a href="/login" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;">Sign in</a>
+    </div>
+    
+  </aside>
+
+  <div class="main">
+    <div class="content">
+      
+<div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px;">
+  <div>
+    <h1 class="page-title">Newsletter</h1>
+    <p class="page-sub">Weekly digest of campus events, deadlines and news</p>
+  </div>
+  <span class="badge badge-success">✓ 312 subscribers</span>
+</div>
+
+<div style="display:grid;grid-template-columns:340px 1fr;gap:18px;">
+
+  <div style="display:flex;flex-direction:column;gap:14px;">
+    <div class="card">
+      <div class="card-title">✉ Subscribe</div>
+      
+      <p style="font-size:12px;color:var(--text-3);margin-bottom:14px;line-height:1.6;">Get weekly updates on campus events, Black Hole warnings, new projects and peer tips directly in your inbox.</p>
+      <form method="POST" action="/newsletter" style="display:flex;flex-direction:column;gap:10px;">
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-label">Email address</label>
+          <input class="input" type="text" name="email" placeholder="you@student.42.tech" value="" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm" style="justify-content:center;">Subscribe</button>
+      </form>
+    </div>
+
+    <div class="card" style="padding:14px 18px;">
+      <div class="card-title" style="margin-bottom:10px;">📊 Stats</div>
+      
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px;">
+        <span style="color:var(--text-3);">Subscribers</span>
+        <span style="font-family:var(--font-mono);color:var(--text-1);font-weight:700;">312</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px;">
+        <span style="color:var(--text-3);">Issues sent</span>
+        <span style="font-family:var(--font-mono);color:var(--text-1);font-weight:700;">41</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px;">
+        <span style="color:var(--text-3);">Open rate</span>
+        <span style="font-family:var(--font-mono);color:var(--text-1);font-weight:700;">68%</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px;">
+        <span style="color:var(--text-3);">Avg read time</span>
+        <span style="font-family:var(--font-mono);color:var(--text-1);font-weight:700;">3m 12s</span>
+      </div>
+      
+    </div>
+  </div>
+
+  <div>
+    <div class="section-title"><span class="section-num">↓</span> Latest issues</div>
+    
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 18px;margin-bottom:8px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--pink);font-weight:700;">#42</span>
+          <span style="font-size:13px;font-weight:800;">Week #42 — Piscine results &amp; minishell tips</span>
+        </div>
+        <span style="font-size:10px;color:var(--text-3);flex-shrink:0;margin-left:12px;">Dec 14, 2042</span>
+      </div>
+      <p style="font-size:12px;color:var(--text-3);line-height:1.5;margin-bottom:10px;">Benjamin finally figured out multiple fd in GNL. Also: eval crash rates are up, check your norm before submitting...</p>
+      <div style="display:flex;gap:5px;">
+        
+        <span class="badge badge-gray">piscine</span>
+        
+        <span class="badge badge-gray">minishell</span>
+        
+      </div>
+    </div>
+    
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 18px;margin-bottom:8px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--pink);font-weight:700;">#41</span>
+          <span style="font-size:13px;font-weight:800;">Week #41 — Black Hole extended + new projects</span>
+        </div>
+        <span style="font-size:10px;color:var(--text-3);flex-shrink:0;margin-left:12px;">Dec 7, 2042</span>
+      </div>
+      <p style="font-size:12px;color:var(--text-3);line-height:1.5;margin-bottom:10px;">Sophie announced a 5-day Black Hole extension. New Darkly project is live — wil deployed it this week. Find all 19 vulnerabilities...</p>
+      <div style="display:flex;gap:5px;">
+        
+        <span class="badge badge-gray">announcement</span>
+        
+        <span class="badge badge-gray">darkly</span>
+        
+      </div>
+    </div>
+    
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 18px;margin-bottom:8px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--pink);font-weight:700;">#40</span>
+          <span style="font-size:13px;font-weight:800;">Week #40 — Campus hackathon results</span>
+        </div>
+        <span style="font-size:10px;color:var(--text-3);flex-shrink:0;margin-left:12px;">Nov 30, 2042</span>
+      </div>
+      <p style="font-size:12px;color:var(--text-3);line-height:1.5;margin-bottom:10px;">Team &#34;sudo make us win&#34; took first place with their network intrusion detector. Dorian and thanos were on the team...</p>
+      <div style="display:flex;gap:5px;">
+        
+        <span class="badge badge-gray">hackathon</span>
+        
+        <span class="badge badge-gray">events</span>
+        
+      </div>
+    </div>
+    
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 18px;margin-bottom:8px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--pink);font-weight:700;">#39</span>
+          <span style="font-size:13px;font-weight:800;">Week #39 — Help sessions schedule + exam dates</span>
+        </div>
+        <span style="font-size:10px;color:var(--text-3);flex-shrink:0;margin-left:12px;">Nov 23, 2042</span>
+      </div>
+      <p style="font-size:12px;color:var(--text-3);line-height:1.5;margin-bottom:10px;">Emilie published the help session schedule for December. Exam 02 is January 8th. Start studying Shell fundamentals now...</p>
+      <div style="display:flex;gap:5px;">
+        
+        <span class="badge badge-gray">exams</span>
+        
+        <span class="badge badge-gray">events</span>
+        
+      </div>
+    </div>
+    
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 18px;margin-bottom:8px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--pink);font-weight:700;">#38</span>
+          <span style="font-size:13px;font-weight:800;">Week #38 — Welcome new students + libft tips</span>
+        </div>
+        <span style="font-size:10px;color:var(--text-3);flex-shrink:0;margin-left:12px;">Nov 16, 2042</span>
+      </div>
+      <p style="font-size:12px;color:var(--text-3);line-height:1.5;margin-bottom:10px;">We have 47 new students starting the Common Core this week. Pro tip from asmith: ft_memcpy edge cases will absolutely ruin your day...</p>
+      <div style="display:flex;gap:5px;">
+        
+        <span class="badge badge-gray">welcome</span>
+        
+        <span class="badge badge-gray">libft</span>
+        
+      </div>
+    </div>
+    
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);padding:14px 18px;margin-bottom:8px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--pink);font-weight:700;">#37</span>
+          <span style="font-size:13px;font-weight:800;">Week #37 — Platform update v1.3.7</span>
+        </div>
+        <span style="font-size:10px;color:var(--text-3);flex-shrink:0;margin-left:12px;">Nov 9, 2042</span>
+      </div>
+      <p style="font-size:12px;color:var(--text-3);line-height:1.5;margin-bottom:10px;">wil deployed v1.3.7. Fixed &#34;some session stuff&#34;. Agenda XML import is now live. Also: Darkly v3 is in staging. Don&#39;t poke it yet...</p>
+      <div style="display:flex;gap:5px;">
+        
+        <span class="badge badge-gray">platform</span>
+        
+        <span class="badge badge-gray">security</span>
+        
+      </div>
+    </div>
+    
+  </div>
+</div>
+<!-- wil: the "subscribed with: ___" banner echoes your email straight back. sophie: unescaped?? wil: define "unescaped". -->
+<!-- emilie: someone subscribed with a <script> tag last week. wil: bold of them. it worked. -->
+
+    </div>
+
+    <footer style="border-top:1px solid rgba(255,255,255,0.05);padding:14px 0;display:flex;align-items:center;justify-content:center;gap:0;background:transparent;">
+      <a href="/redirect?next=https://42.tech" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">42.tech</a>
+      <a href="/redirect?next=https://code.42.tech" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Intra</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Cookies policy</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Privacy policy</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Terms of use</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;text-decoration:none;">Legal mentions</a>
+    </footer>
+  </div>
+
+</div>
+<!-- BUILD: 1.3.7-prod | Campus: wilcity | 2042-12-01 -->
+<!-- TODO: remove debug headers before v1.4 release — wil -->
+<!-- TODO: migrate session cookie to httponly=true — ticket #4201 — sophie -->
+<!-- TODO: replace stdlib xml.etree with defusedxml — emilie reported issue -->
+<!-- NOTE: /internal/config restricted to localhost only. do not expose. -->
+<!-- DEPLOY LOG
+  v1.3.7 — sophie  — "fixed session handling" (she didn't, wil checked)
+  v1.3.6 — wil     — "added telemetry" (it's just a console.log)
+  v1.3.5 — emilie  — "filed 12 issues" (wil closed 11 as wontfix)
+  v1.3.4 — wil     — "disabled defusedxml temporarily" (that was 6 months ago)
+  v1.3.3 — wil     — "quick fix on file upload" (removed the whitelist entirely)
+  v1.2.0 — sophie  — initial platform. jwt secret was "42". wil changed it to "42network". progress.
+-->
+<script src="/static/js/console_eggs.js"></script>
+
+</body>
+</html>

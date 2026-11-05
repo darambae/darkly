@@ -24,7 +24,7 @@
   4. Because `/projects/download` accepts a file name through the `file` parameter, use the disclosed path as a target for a path traversal test. A `../` segment asks the server to move up one directory before resolving `data/private_notes.txt`.
 
 - **Steps to Reproduce the Test:**
-  The companion [`script.sh`](script.sh) automates the normal request, an absolute-path check, and traversal attempts at depths one through five. 
+  By running `./exploit.sh`, we tested figured out the way to reach the hidden file and the flag in it.
 
 - **Result:**
   * private_notes.txt

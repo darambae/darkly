@@ -6,7 +6,7 @@
 - **Discovery:**
     In the Benjamin's post on Forum, he gave a hint about resetting passwords. 
 - **Steps to Reproduce:** (Step by step, so anyone can follow along)
-  1. Reset password of an user using `./script.sh`
+  1. Reset password of an user using `./exploit.sh`
   2. Go to `http://localhost:4942/profile/me/settings`
   3. Find the flag on his profile.
 - **Flag:** FLAG{r3s3t_t0k3n_w4s_just_md5_lol}

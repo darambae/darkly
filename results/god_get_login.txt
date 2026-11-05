@@ -1,0 +1,153 @@
+HTTP/1.1 200 OK
+date: Thu, 05 Nov 2026 13:01:34 GMT
+server: uvicorn
+content-length: 8868
+content-type: text/html; charset=utf-8
+x-powered-by: Python/3.11 FastAPI/0.104
+server: uvicorn/0.24.0 Linux
+x-pocketbase: http://localhost:8090
+x-42-internal: campus=paris
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in — 42 Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Kode+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/main.css">
+  
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-mark">42<span class="sidebar-cursor"></span></div>
+    </div>
+
+    
+    <div class="sidebar-user" style="opacity:.3;cursor:default;">
+      <img src="/static/img/default.png" class="sidebar-avatar" alt="">
+      <div style="flex:1;min-width:0;">
+        <div class="sidebar-login">Guest</div>
+        <div style="font-size:10px;color:var(--text-3);margin-top:1px;">Not signed in</div>
+      </div>
+    </div>
+    
+
+    <nav class="sidebar-nav">
+      <a href="/"           class="sidebar-nav-item "><span class="nav-icon">⌂</span>Home</a>
+      <a href="/projects"   class="sidebar-nav-item "><span class="nav-icon">◈</span>Projects</a>
+      <a href="/forum"      class="sidebar-nav-item "><span class="nav-icon">◻</span>Forum</a>
+      <a href="/newsletter" class="sidebar-nav-item "><span class="nav-icon">✉</span>Newsletter</a>
+      
+      
+      
+    </nav>
+
+    
+    <div class="sidebar-bottom" style="margin-top:auto;">
+      <a href="/login" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;">Sign in</a>
+    </div>
+    
+  </aside>
+
+  <div class="main">
+    <div class="content">
+      
+<div style="max-width:380px;margin:60px auto 0;">
+  <h1 style="font-size:24px;font-weight:900;margin-bottom:4px;">Get started now!</h1>
+  <p style="font-size:12px;color:var(--text-3);margin-bottom:28px;">Sign in to access your 42 Network account</p>
+
+  
+  
+
+  <a href="/redirect?next=https://accounts.google.com" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:12px 20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);border-radius:6px;color:rgba(255,255,255,.75);font-size:11px;font-weight:800;letter-spacing:.10em;text-transform:uppercase;text-decoration:none;margin-bottom:20px;transition:.12s;" onmouseover="this.style.background='rgba(255,255,255,.09)'" onmouseout="this.style.background='rgba(255,255,255,.05)'">
+    <svg width="16" height="16" viewBox="0 0 18 18"><path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/><path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/><path d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/><path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/></svg>
+    Continue with Google
+  </a>
+
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;color:rgba(255,255,255,.18);font-size:12px;">
+    <div style="flex:1;height:1px;background:rgba(255,255,255,.06);"></div>
+    or
+    <div style="flex:1;height:1px;background:rgba(255,255,255,.06);"></div>
+  </div>
+
+  <form method="POST" action="/login">
+    <div class="form-group">
+      <label class="form-label">Email</label>
+      <input class="input" type="text" name="identity" placeholder="john.doe@42.tech" autocomplete="username" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Password</label>
+      <input class="input" id="pw" type="password" name="password" placeholder="••••••••••" autocomplete="current-password" required>
+    </div>
+
+    <label style="display:flex;align-items:center;gap:10px;margin-bottom:20px;font-size:13px;color:var(--text-2);cursor:pointer;user-select:none;" onclick="togglePw()">
+      <span style="position:relative;width:36px;height:20px;flex-shrink:0;">
+        <input type="checkbox" id="pw-toggle" style="opacity:0;width:0;height:0;">
+        <span id="pw-track" style="position:absolute;inset:0;background:rgba(255,255,255,.10);border-radius:20px;border:1px solid rgba(255,255,255,.10);transition:.2s;"></span>
+        <span id="pw-thumb" style="position:absolute;top:3px;left:3px;width:12px;height:12px;background:rgba(255,255,255,.5);border-radius:50%;transition:.2s;"></span>
+      </span>
+      Show password
+    </label>
+
+    <button type="submit" style="width:100%;padding:13px;background:#fff;color:#09111f;border:none;border-radius:6px;font-family:'Raleway',sans-serif;font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;margin-bottom:16px;transition:.12s;" onmouseover="this.style.background='rgba(255,255,255,.9)'" onmouseout="this.style.background='#fff'">Sign in</button>
+  </form>
+
+  <div style="text-align:center;">
+    <a href="/reset-password" style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.25);text-decoration:none;">Forgot your password?</a>
+  </div>
+</div>
+
+    </div>
+
+    <footer style="border-top:1px solid rgba(255,255,255,0.05);padding:14px 0;display:flex;align-items:center;justify-content:center;gap:0;background:transparent;">
+      <a href="/redirect?next=https://42.tech" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">42.tech</a>
+      <a href="/redirect?next=https://code.42.tech" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Intra</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Cookies policy</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Privacy policy</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Terms of use</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;text-decoration:none;">Legal mentions</a>
+    </footer>
+  </div>
+
+</div>
+<!-- BUILD: 1.3.7-prod | Campus: wilcity | 2042-12-01 -->
+<!-- TODO: remove debug headers before v1.4 release — wil -->
+<!-- TODO: migrate session cookie to httponly=true — ticket #4201 — sophie -->
+<!-- TODO: replace stdlib xml.etree with defusedxml — emilie reported issue -->
+<!-- NOTE: /internal/config restricted to localhost only. do not expose. -->
+<!-- DEPLOY LOG
+  v1.3.7 — sophie  — "fixed session handling" (she didn't, wil checked)
+  v1.3.6 — wil     — "added telemetry" (it's just a console.log)
+  v1.3.5 — emilie  — "filed 12 issues" (wil closed 11 as wontfix)
+  v1.3.4 — wil     — "disabled defusedxml temporarily" (that was 6 months ago)
+  v1.3.3 — wil     — "quick fix on file upload" (removed the whitelist entirely)
+  v1.2.0 — sophie  — initial platform. jwt secret was "42". wil changed it to "42network". progress.
+-->
+<script src="/static/js/console_eggs.js"></script>
+
+<script>
+function togglePw() {
+  const pw = document.getElementById('pw');
+  const chk = document.getElementById('pw-toggle');
+  const track = document.getElementById('pw-track');
+  const thumb = document.getElementById('pw-thumb');
+  chk.checked = !chk.checked;
+  pw.type = chk.checked ? 'text' : 'password';
+  track.style.background = chk.checked ? 'rgba(176,95,199,.7)' : 'rgba(255,255,255,.10)';
+  thumb.style.left = chk.checked ? '19px' : '3px';
+  thumb.style.background = chk.checked ? '#fff' : 'rgba(255,255,255,.5)';
+}
+console.log('%c[AUTH] Session fixation window: cookie set without rotation post-login', 'color:#f5a623;font-size:11px;font-family:monospace');
+console.log('%c[AUTH] Token: HS256 | secret entropy: "memorable"', 'color:#f5a623;font-size:11px;font-family:monospace');
+console.log('%c[HINT] md5 is not security. some accounts have predictable passwords.', 'color:#e040c8;font-size:11px;font-family:monospace');
+let seq=[];const k=[38,38,40,40,37,39,37,39,66,65];
+document.addEventListener('keydown',e=>{seq.push(e.keyCode);seq=seq.slice(-10);if(JSON.stringify(seq)===JSON.stringify(k)){document.querySelector('h1').textContent="psst — jdoe still hasn't changed that password 🤘";setTimeout(()=>document.querySelector('h1').textContent='Get started now!',3000);}});
+</script>
+
+</body>
+</html>

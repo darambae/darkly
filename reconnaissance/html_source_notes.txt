@@ -42,3 +42,20 @@ ce qui donne plusieurs indices sur d'éventuelles vulnérabilités:
     -> trouver un jwt dans les cookies, stockage local ou en-tête authorisation
        décoder le header et le playload
        examiner l'algorithm déclaré
+
+From the source of '/staff' endpoint
+<!-- wil: JWT config endpoint moved to /internal/config (localhost only). Do NOT expose. -->
+<!-- sophie: /api/docs-internal still accessible without staff check — TODO fix in v1.4 -->
+<!-- emilie: removed hardcoded credentials from this file (see git history if needed) -->
+<!-- also: PATCH /api/profile accepts a "role" field. the API schema documents which values are valid. -->
+
+From the source of `/staff/dashboard`
+<!-- TODO wil: someone subscribed "' OR 1=1--@evil.com" we should probably sanitize the email field -->
+<!-- emilie: I am going to kill you wil -->
+<!-- wil: it's fine, it's a learning platform -->
+<!-- sophie: both of you stop it and fix the XSS in the forum comments first -->
+
+From the source of `/projects` as a student
+<!-- hey if you're reading source: faq_darkly.pdf has a note at the bottom. not a bug. — dorian -->
+<!-- dorian: /projects/download serves any file you ask for. wil: it's a feature, not a directory listing. -->
+<!-- emilie: half these XP values are made up. wil: ALL software is made up if you think about it. -->

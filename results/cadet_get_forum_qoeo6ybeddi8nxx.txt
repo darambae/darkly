@@ -1,0 +1,124 @@
+HTTP/1.1 200 OK
+date: Thu, 05 Nov 2026 13:01:30 GMT
+server: uvicorn
+content-length: 5774
+content-type: text/html; charset=utf-8
+x-powered-by: Python/3.11 FastAPI/0.104
+server: uvicorn/0.24.0 Linux
+x-pocketbase: http://localhost:8090
+x-42-internal: campus=paris
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Here&#39;s a test posting — Forum</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Kode+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/main.css">
+  
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-mark">42<span class="sidebar-cursor"></span></div>
+    </div>
+
+    
+    <div class="sidebar-user" style="opacity:.3;cursor:default;">
+      <img src="/static/img/default.png" class="sidebar-avatar" alt="">
+      <div style="flex:1;min-width:0;">
+        <div class="sidebar-login">Guest</div>
+        <div style="font-size:10px;color:var(--text-3);margin-top:1px;">Not signed in</div>
+      </div>
+    </div>
+    
+
+    <nav class="sidebar-nav">
+      <a href="/"           class="sidebar-nav-item "><span class="nav-icon">⌂</span>Home</a>
+      <a href="/projects"   class="sidebar-nav-item "><span class="nav-icon">◈</span>Projects</a>
+      <a href="/forum"      class="sidebar-nav-item active"><span class="nav-icon">◻</span>Forum</a>
+      <a href="/newsletter" class="sidebar-nav-item "><span class="nav-icon">✉</span>Newsletter</a>
+      
+      
+      
+    </nav>
+
+    
+    <div class="sidebar-bottom" style="margin-top:auto;">
+      <a href="/login" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;">Sign in</a>
+    </div>
+    
+  </aside>
+
+  <div class="main">
+    <div class="content">
+      
+<div style="margin-bottom:20px;display:flex;align-items:center;gap:8px;">
+  <a href="/forum" style="font-size:12px;color:var(--text-tertiary);display:inline-flex;align-items:center;gap:4px;">← Forum</a>
+  
+</div>
+
+
+<div class="card" style="margin-bottom:20px;">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+    <img src="/static/uploads/default.png" style="width:38px;height:38px;border-radius:50%;border:2px solid var(--border-md);object-fit:cover;" onerror="this.src='/static/img/default.png'" alt="">
+    <div>
+      <div style="display:flex;align-items:center;gap:7px;">
+        <span class="post-author">jdoe</span>
+        <span class="role-pill role-god">god</span>
+      </div>
+      <div style="font-size:11px;color:var(--text-tertiary);margin-top:2px;">2026-11-05 08:34 · Wilcity</div>
+    </div>
+    <a href="/profile/z4p1cnx47mfy50f" style="margin-left:auto;font-size:11px;color:var(--text-tertiary);">View profile →</a>
+  </div>
+  <h1 style="font-size:20px;font-weight:800;margin-bottom:14px;letter-spacing:-.2px;">Here&#39;s a test posting</h1>
+  <div class="post-content">let's see </div>
+</div>
+
+<div style="font-size:11px;font-weight:700;color:var(--text-tertiary);margin-bottom:12px;letter-spacing:.08em;text-transform:uppercase;">
+  0 comments
+</div>
+
+
+
+
+<div style="text-align:center;padding:24px;color:var(--text-tertiary);font-size:13px;"><a href="/login">Sign in</a> to comment</div>
+
+<!-- the "HTML is supported for formatting" note is not ironic at all -->
+<!-- wil: left /api/collect up from when I was debugging the bot — it logs whatever you throw at ?c= and hands it all back on GET. sophie: that is an open exfil log. wil: it's a DEBUG endpoint. -->
+<!-- emilie: the moderation bot opens every thread with a live session... and a "flag" cookie that isn't httpOnly. wil: I'll fix it. emilie: when. wil: yes. -->
+
+    </div>
+
+    <footer style="border-top:1px solid rgba(255,255,255,0.05);padding:14px 0;display:flex;align-items:center;justify-content:center;gap:0;background:transparent;">
+      <a href="/redirect?next=https://42.tech" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">42.tech</a>
+      <a href="/redirect?next=https://code.42.tech" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Intra</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Cookies policy</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Privacy policy</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Terms of use</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;text-decoration:none;">Legal mentions</a>
+    </footer>
+  </div>
+
+</div>
+<!-- BUILD: 1.3.7-prod | Campus: wilcity | 2042-12-01 -->
+<!-- TODO: remove debug headers before v1.4 release — wil -->
+<!-- TODO: migrate session cookie to httponly=true — ticket #4201 — sophie -->
+<!-- TODO: replace stdlib xml.etree with defusedxml — emilie reported issue -->
+<!-- NOTE: /internal/config restricted to localhost only. do not expose. -->
+<!-- DEPLOY LOG
+  v1.3.7 — sophie  — "fixed session handling" (she didn't, wil checked)
+  v1.3.6 — wil     — "added telemetry" (it's just a console.log)
+  v1.3.5 — emilie  — "filed 12 issues" (wil closed 11 as wontfix)
+  v1.3.4 — wil     — "disabled defusedxml temporarily" (that was 6 months ago)
+  v1.3.3 — wil     — "quick fix on file upload" (removed the whitelist entirely)
+  v1.2.0 — sophie  — initial platform. jwt secret was "42". wil changed it to "42network". progress.
+-->
+<script src="/static/js/console_eggs.js"></script>
+
+</body>
+</html>

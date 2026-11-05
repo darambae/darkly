@@ -25,3 +25,5 @@ Navigation, HTML comments, browser behavior, and `robots.txt` revealed useful le
 | 9 | [Excessive data exposure](09_excessive_data_exposure/explanation.md) |  | `FLAG{md5_1s_4_n4m3pl4t3_n0t_4_l0ck}` |
 | 10 | [Cross-Site Request Forgery Protection Weakness](10_cross_site_request_forgery/explanation.md) | The server accepted a state-changing request with an external `Origin` and no CSRF token | `FLAG{csrf_4ny_0r1g1n_1s_w3lc0m3}` |
 | 11 | [Path Traversal](11_path_traversal/explanation.md) | `../` escaped the download directory and exposed `data/private_notes.txt` | `FLAG{d0t_d0t_sl4sh_4ll_th3_w4y_d0wn}` |
+| 12 | [JWT Forgery](12_jwt_forgery/explanation.md) | Anyone can create a jwt token with exposed user data and modify the user's data | None |
+| 13 | [Cryptographic_failures](13_cryptographic_failures/explanation.md) | Unsalted MD5 Password hint are saved in the database on PocketBase | None |

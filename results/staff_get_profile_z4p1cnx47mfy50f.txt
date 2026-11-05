@@ -1,0 +1,320 @@
+HTTP/1.1 200 OK
+date: Thu, 05 Nov 2026 13:01:33 GMT
+server: uvicorn
+content-length: 17340
+content-type: text/html; charset=utf-8
+x-powered-by: Python/3.11 FastAPI/0.104
+server: uvicorn/0.24.0 Linux
+x-pocketbase: http://localhost:8090
+x-42-internal: campus=paris
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wil — 42 Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Kode+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/main.css">
+  
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-mark">42<span class="sidebar-cursor"></span></div>
+    </div>
+
+    
+    <div class="sidebar-user" style="opacity:.3;cursor:default;">
+      <img src="/static/img/default.png" class="sidebar-avatar" alt="">
+      <div style="flex:1;min-width:0;">
+        <div class="sidebar-login">Guest</div>
+        <div style="font-size:10px;color:var(--text-3);margin-top:1px;">Not signed in</div>
+      </div>
+    </div>
+    
+
+    <nav class="sidebar-nav">
+      <a href="/"           class="sidebar-nav-item "><span class="nav-icon">⌂</span>Home</a>
+      <a href="/projects"   class="sidebar-nav-item "><span class="nav-icon">◈</span>Projects</a>
+      <a href="/forum"      class="sidebar-nav-item "><span class="nav-icon">◻</span>Forum</a>
+      <a href="/newsletter" class="sidebar-nav-item "><span class="nav-icon">✉</span>Newsletter</a>
+      
+      
+      
+    </nav>
+
+    
+    <div class="sidebar-bottom" style="margin-top:auto;">
+      <a href="/login" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;">Sign in</a>
+    </div>
+    
+  </aside>
+
+  <div class="main">
+    <div class="content">
+      
+<div style="margin-bottom:20px;">
+  <a href="javascript:history.back()" style="font-size:11px;color:var(--text-3);display:inline-flex;align-items:center;gap:4px;text-decoration:none;">← Back</a>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 260px;gap:18px;align-items:start;">
+  <div style="display:flex;flex-direction:column;gap:14px;">
+
+    <div class="card">
+      <div style="display:flex;align-items:center;gap:20px;">
+        <div style="position:relative;">
+          <img src="/static/uploads/default.png" class="user-avatar-lg"
+               onerror="this.src='/static/img/default.png'" alt="">
+          <div style="position:absolute;bottom:2px;right:2px;width:10px;height:10px;border-radius:50%;background:var(--green);border:2px solid var(--bg-card);"></div>
+        </div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+            <div class="user-login">wil</div>
+            <span class="role-pill role-staff">staff</span>
+          </div>
+          <div class="user-name">Wil Salou</div>
+          <div class="user-campus">📍 HQ campus · WC1</div>
+          <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;">
+            <span class="level-pill">Level 21.00</span>
+            <span class="badge badge-gray">Common Core</span>
+            <span class="badge badge-success">● Active</span>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:18px;">
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-3);margin-bottom:5px;">
+          <span>Level 21</span>
+          <span>0% — 100% to next level</span>
+        </div>
+        <div class="level-bar-track"><div class="level-bar-fill" style="width:0%"></div></div>
+      </div>
+    </div>
+
+    
+    <div class="card" style="border-color:rgba(245,166,35,.25);">
+      <div class="card-title" style="color:var(--yellow);">🔒 Private note</div>
+      <div style="font-size:13px;color:var(--text-secondary);font-family:var(--font-mono);">FLAG{1d0r_ur_pr0f1l3_1s_m1n3}</div>
+      <div style="font-size:10px;color:var(--text-3);margin-top:6px;">Only visible to wil — supposedly.</div>
+    </div>
+    
+
+    <div class="table-wrap">
+      <div class="table-head">
+        Projects
+        <span class="badge badge-gray">0 registered</span>
+      </div>
+      
+      <div style="padding:32px 20px;text-align:center;color:var(--text-3);font-size:13px;">No projects yet.</div>
+      
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="margin-bottom:14px;">Skills granted</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        
+        <div style="background:var(--bg-hover);border:1px solid var(--border);border-radius:var(--r-md);padding:8px 12px;min-width:120px;">
+          <div style="font-size:11px;color:var(--text-2);margin-bottom:4px;">Unix</div>
+          <div style="height:3px;background:rgba(255,255,255,.07);border-radius:9px;overflow:hidden;">
+            <div style="height:100%;width:82%;background:var(--grad);border-radius:9px;"></div>
+          </div>
+          <div style="font-size:9px;color:var(--text-3);margin-top:3px;font-family:var(--font-mono);">82%</div>
+        </div>
+        
+        <div style="background:var(--bg-hover);border:1px solid var(--border);border-radius:var(--r-md);padding:8px 12px;min-width:120px;">
+          <div style="font-size:11px;color:var(--text-2);margin-bottom:4px;">Rigor</div>
+          <div style="height:3px;background:rgba(255,255,255,.07);border-radius:9px;overflow:hidden;">
+            <div style="height:100%;width:76%;background:var(--grad);border-radius:9px;"></div>
+          </div>
+          <div style="font-size:9px;color:var(--text-3);margin-top:3px;font-family:var(--font-mono);">76%</div>
+        </div>
+        
+        <div style="background:var(--bg-hover);border:1px solid var(--border);border-radius:var(--r-md);padding:8px 12px;min-width:120px;">
+          <div style="font-size:11px;color:var(--text-2);margin-bottom:4px;">Algorithms</div>
+          <div style="height:3px;background:rgba(255,255,255,.07);border-radius:9px;overflow:hidden;">
+            <div style="height:100%;width:61%;background:var(--grad);border-radius:9px;"></div>
+          </div>
+          <div style="font-size:9px;color:var(--text-3);margin-top:3px;font-family:var(--font-mono);">61%</div>
+        </div>
+        
+        <div style="background:var(--bg-hover);border:1px solid var(--border);border-radius:var(--r-md);padding:8px 12px;min-width:120px;">
+          <div style="font-size:11px;color:var(--text-2);margin-bottom:4px;">C programming</div>
+          <div style="height:3px;background:rgba(255,255,255,.07);border-radius:9px;overflow:hidden;">
+            <div style="height:100%;width:88%;background:var(--grad);border-radius:9px;"></div>
+          </div>
+          <div style="font-size:9px;color:var(--text-3);margin-top:3px;font-family:var(--font-mono);">88%</div>
+        </div>
+        
+        <div style="background:var(--bg-hover);border:1px solid var(--border);border-radius:var(--r-md);padding:8px 12px;min-width:120px;">
+          <div style="font-size:11px;color:var(--text-2);margin-bottom:4px;">Object-Oriented</div>
+          <div style="height:3px;background:rgba(255,255,255,.07);border-radius:9px;overflow:hidden;">
+            <div style="height:100%;width:44%;background:var(--grad);border-radius:9px;"></div>
+          </div>
+          <div style="font-size:9px;color:var(--text-3);margin-top:3px;font-family:var(--font-mono);">44%</div>
+        </div>
+        
+        <div style="background:var(--bg-hover);border:1px solid var(--border);border-radius:var(--r-md);padding:8px 12px;min-width:120px;">
+          <div style="font-size:11px;color:var(--text-2);margin-bottom:4px;">Memory management</div>
+          <div style="height:3px;background:rgba(255,255,255,.07);border-radius:9px;overflow:hidden;">
+            <div style="height:100%;width:70%;background:var(--grad);border-radius:9px;"></div>
+          </div>
+          <div style="font-size:9px;color:var(--text-3);margin-top:3px;font-family:var(--font-mono);">70%</div>
+        </div>
+        
+        <div style="background:var(--bg-hover);border:1px solid var(--border);border-radius:var(--r-md);padding:8px 12px;min-width:120px;">
+          <div style="font-size:11px;color:var(--text-2);margin-bottom:4px;">Network</div>
+          <div style="height:3px;background:rgba(255,255,255,.07);border-radius:9px;overflow:hidden;">
+            <div style="height:100%;width:35%;background:var(--grad);border-radius:9px;"></div>
+          </div>
+          <div style="font-size:9px;color:var(--text-3);margin-top:3px;font-family:var(--font-mono);">35%</div>
+        </div>
+        
+        <div style="background:var(--bg-hover);border:1px solid var(--border);border-radius:var(--r-md);padding:8px 12px;min-width:120px;">
+          <div style="font-size:11px;color:var(--text-2);margin-bottom:4px;">Security</div>
+          <div style="height:3px;background:rgba(255,255,255,.07);border-radius:9px;overflow:hidden;">
+            <div style="height:100%;width:28%;background:var(--grad);border-radius:9px;"></div>
+          </div>
+          <div style="font-size:9px;color:var(--text-3);margin-top:3px;font-family:var(--font-mono);">28%</div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:12px;">
+    
+
+    <div class="card" style="padding:14px 18px;">
+      <div class="card-title" style="font-size:11px;margin-bottom:12px;">Account info</div>
+      
+      <div style="display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;">
+        <span style="color:var(--text-3);">User ID</span>
+        <span class="mono" style="font-size:11px;">k1asdfeditoj...</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;">
+        <span style="color:var(--text-3);">Email</span>
+        <span class="mono" style="font-size:11px;">wil@42network.fr</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;">
+        <span style="color:var(--text-3);">Campus</span>
+        <span >HQ</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;">
+        <span style="color:var(--text-3);">Program</span>
+        <span >Common Core</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;">
+        <span style="color:var(--text-3);">Location</span>
+        <span class="mono" style="font-size:11px;">WC1</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px;">
+        <span style="color:var(--text-3);">Registered</span>
+        <span >Jan 2042</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:12px;">
+        <span style="color:var(--text-3);">Role</span>
+        <span class="role-pill role-staff">staff</span>
+      </div>
+    </div>
+
+    <div class="card" style="padding:14px 18px;">
+      <div class="card-title" style="font-size:11px;margin-bottom:12px;">Achievements</div>
+      
+      <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);">
+        <span style="font-size:16px;">🎯</span>
+        <div>
+          <div style="font-size:11px;font-weight:700;">First evaluation</div>
+          <div style="font-size:10px;color:var(--text-3);">Completed your first peer review</div>
+        </div>
+      </div>
+      
+      <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);">
+        <span style="font-size:16px;">⚡</span>
+        <div>
+          <div style="font-size:11px;font-weight:700;">Speed runner</div>
+          <div style="font-size:10px;color:var(--text-3);">Validated libft in under 3 days</div>
+        </div>
+      </div>
+      
+      <div style="display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);">
+        <span style="font-size:16px;">🔍</span>
+        <div>
+          <div style="font-size:11px;font-weight:700;">Curious</div>
+          <div style="font-size:10px;color:var(--text-3);">You really like reading source code</div>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="card" style="padding:14px 18px;">
+      <div class="card-title" style="font-size:11px;margin-bottom:10px;">Level buddies</div>
+      
+      <a href="/api/users" style="display:flex;align-items:center;gap:8px;padding:5px 0;text-decoration:none;">
+        <div style="width:24px;height:24px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;font-family:var(--font-mono);color:var(--brand);">B</div>
+        <span style="font-size:11px;font-family:var(--font-mono);color:var(--text-2);">benjamin</span>
+        <span style="font-size:10px;color:var(--text-3);margin-left:auto;">L8</span>
+      </a>
+      
+      <a href="/api/users" style="display:flex;align-items:center;gap:8px;padding:5px 0;text-decoration:none;">
+        <div style="width:24px;height:24px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;font-family:var(--font-mono);color:var(--brand);">A</div>
+        <span style="font-size:11px;font-family:var(--font-mono);color:var(--text-2);">anne-sophie</span>
+        <span style="font-size:10px;color:var(--text-3);margin-left:auto;">L6</span>
+      </a>
+      
+      <a href="/api/users" style="display:flex;align-items:center;gap:8px;padding:5px 0;text-decoration:none;">
+        <div style="width:24px;height:24px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;font-family:var(--font-mono);color:var(--brand);">D</div>
+        <span style="font-size:11px;font-family:var(--font-mono);color:var(--text-2);">dorian</span>
+        <span style="font-size:10px;color:var(--text-3);margin-left:auto;">L5</span>
+      </a>
+      
+      <a href="/api/users" style="display:flex;align-items:center;gap:8px;padding:5px 0;text-decoration:none;">
+        <div style="width:24px;height:24px;border-radius:50%;background:var(--bg-hover);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;font-family:var(--font-mono);color:var(--brand);">T</div>
+        <span style="font-size:11px;font-family:var(--font-mono);color:var(--text-2);">thanos</span>
+        <span style="font-size:10px;color:var(--text-3);margin-left:auto;">L12</span>
+      </a>
+      
+    </div>
+  </div>
+</div>
+<!-- dorian: you can open anyone's /profile/<id> — the ids are in every link on the site. wil: privacy is a journey, not a destination. -->
+<!-- sophie: nice "Curious" achievement for reading the source. it's not just decorative. keep going. -->
+
+    </div>
+
+    <footer style="border-top:1px solid rgba(255,255,255,0.05);padding:14px 0;display:flex;align-items:center;justify-content:center;gap:0;background:transparent;">
+      <a href="/redirect?next=https://42.tech" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">42.tech</a>
+      <a href="/redirect?next=https://code.42.tech" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Intra</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Cookies policy</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Privacy policy</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Terms of use</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;text-decoration:none;">Legal mentions</a>
+    </footer>
+  </div>
+
+</div>
+<!-- BUILD: 1.3.7-prod | Campus: wilcity | 2042-12-01 -->
+<!-- TODO: remove debug headers before v1.4 release — wil -->
+<!-- TODO: migrate session cookie to httponly=true — ticket #4201 — sophie -->
+<!-- TODO: replace stdlib xml.etree with defusedxml — emilie reported issue -->
+<!-- NOTE: /internal/config restricted to localhost only. do not expose. -->
+<!-- DEPLOY LOG
+  v1.3.7 — sophie  — "fixed session handling" (she didn't, wil checked)
+  v1.3.6 — wil     — "added telemetry" (it's just a console.log)
+  v1.3.5 — emilie  — "filed 12 issues" (wil closed 11 as wontfix)
+  v1.3.4 — wil     — "disabled defusedxml temporarily" (that was 6 months ago)
+  v1.3.3 — wil     — "quick fix on file upload" (removed the whitelist entirely)
+  v1.2.0 — sophie  — initial platform. jwt secret was "42". wil changed it to "42network". progress.
+-->
+<script src="/static/js/console_eggs.js"></script>
+
+</body>
+</html>

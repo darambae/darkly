@@ -35,5 +35,4 @@
   - **Minimize API Responses:** Return only the fields required by the grades feature; never include challenge flags or secrets in expanded project objects.
   - **Enforce Server-Side Authorization:** Check authentication and per-record permissions before returning grades and related project information.
   - **Apply Field-Level Access Controls:** Exclude sensitive project fields from API serialization for users who do not explicitly need them.
-  - **Test Different Roles:** Add automated checks for anonymous, student, staff, and administrator access to the endpoint.
-  - **Protect Challenge Secrets:** Keep flags in a separate, access-controlled store rather than general-purpose project records.
+  - **Test Different Roles:** Add automated checks for visitor, student, staff, and administrator access to the endpoint.

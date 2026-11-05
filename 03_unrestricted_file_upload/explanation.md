@@ -9,7 +9,7 @@
 - **Steps to Reproduce:** (Step by step, so anyone can follow along)
   1. Go to user's profile page
   2. Upload any type of file in Avatar
-- **Flag:** FLAG{unr3str1ct3d_upl0ad_g0_brrr}
+- **Flag:** `FLAG{unr3str1ct3d_upl0ad_g0_brrr}`
 - **Cause:** 
   - Missing Validation: The server completely lacks file extension and content checks (whitelist removed).
   - Unfiltered Processing: Uploaded files are accepted and stored blindly without verifying MIME types or Magic Bytes.

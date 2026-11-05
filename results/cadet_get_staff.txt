@@ -1,0 +1,181 @@
+HTTP/1.1 200 OK
+date: Thu, 05 Nov 2026 13:01:31 GMT
+server: uvicorn
+content-length: 8378
+content-type: text/html; charset=utf-8
+x-powered-by: Python/3.11 FastAPI/0.104
+server: uvicorn/0.24.0 Linux
+x-pocketbase: http://localhost:8090
+x-42-internal: campus=paris
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff area — 42 Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Kode+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/main.css">
+  
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-mark">42<span class="sidebar-cursor"></span></div>
+    </div>
+
+    
+    <div class="sidebar-user" style="opacity:.3;cursor:default;">
+      <img src="/static/img/default.png" class="sidebar-avatar" alt="">
+      <div style="flex:1;min-width:0;">
+        <div class="sidebar-login">Guest</div>
+        <div style="font-size:10px;color:var(--text-3);margin-top:1px;">Not signed in</div>
+      </div>
+    </div>
+    
+
+    <nav class="sidebar-nav">
+      <a href="/"           class="sidebar-nav-item "><span class="nav-icon">⌂</span>Home</a>
+      <a href="/projects"   class="sidebar-nav-item "><span class="nav-icon">◈</span>Projects</a>
+      <a href="/forum"      class="sidebar-nav-item "><span class="nav-icon">◻</span>Forum</a>
+      <a href="/newsletter" class="sidebar-nav-item "><span class="nav-icon">✉</span>Newsletter</a>
+      
+      
+      
+    </nav>
+
+    
+    <div class="sidebar-bottom" style="margin-top:auto;">
+      <a href="/login" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;">Sign in</a>
+    </div>
+    
+  </aside>
+
+  <div class="main">
+    <div class="content">
+      
+<div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px;">
+  <div>
+    <h1 class="page-title">Staff area</h1>
+    <p class="page-sub">42 Network internal resources · Wilcity</p>
+  </div>
+  
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+  <div class="card">
+    <div class="card-title">📁 Resources</div>
+    
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);">
+      <div>
+        <div style="font-size:12px;font-weight:700;">Staff onboarding guide</div>
+        <div style="font-size:10px;color:var(--text-3);margin-top:2px;">Internal · updated Jun 2042</div>
+      </div>
+      
+    </div>
+    
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);">
+      <div>
+        <div style="font-size:12px;font-weight:700;">Evaluation grid template</div>
+        <div style="font-size:10px;color:var(--text-3);margin-top:2px;">Peer review forms</div>
+      </div>
+      
+    </div>
+    
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);">
+      <div>
+        <div style="font-size:12px;font-weight:700;">Campus map</div>
+        <div style="font-size:10px;color:var(--text-3);margin-top:2px;">WC1 floor plans</div>
+      </div>
+      
+    </div>
+    
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);">
+      <div>
+        <div style="font-size:12px;font-weight:700;">Black Hole calculator</div>
+        <div style="font-size:10px;color:var(--text-3);margin-top:2px;">Help students plan</div>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:12px;">
+    <div class="card">
+      <div class="card-title">⚡ Staff dashboard</div>
+      <p style="font-size:12px;color:var(--text-3);margin-bottom:14px;line-height:1.6;">Manage students, view evaluation activity, monitor newsletter subscriptions and platform health.</p>
+      
+        <div class="alert alert-warning" style="margin-bottom:0;font-size:11px;">Cadet access required. Try <span class="mono">PATCH /api/profile</span> with the right fields.</div>
+      
+    </div>
+
+    <div class="card" style="padding:14px 18px;">
+      <div class="card-title" style="margin-bottom:10px;">📡 Platform status</div>
+      
+      <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:11px;">
+        <span style="color:var(--text-3);">FastAPI app</span>
+        <span style="color:var(--green);font-size:10px;font-weight:700;">Running · port 4942</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:11px;">
+        <span style="color:var(--text-3);">PocketBase</span>
+        <span style="color:var(--green);font-size:10px;font-weight:700;">Running · port 8090</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:11px;">
+        <span style="color:var(--text-3);">File uploads</span>
+        <span style="color:var(--yellow);font-size:10px;font-weight:700;">Enabled (unrestricted)</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:11px;">
+        <span style="color:var(--text-3);">XML parser</span>
+        <span style="color:var(--red);font-size:10px;font-weight:700;">stdlib ET (unsafe)</span>
+      </div>
+      
+      <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);font-size:11px;">
+        <span style="color:var(--text-3);">Session cookie</span>
+        <span style="color:var(--red);font-size:10px;font-weight:700;">httponly=false</span>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- wil: JWT config endpoint moved to /internal/config (localhost only). Do NOT expose. -->
+<!-- sophie: /api/docs-internal still accessible without staff check — TODO fix in v1.4 -->
+<!-- emilie: removed hardcoded credentials from this file (see git history if needed) -->
+<!-- also: PATCH /api/profile accepts a "role" field. the API schema documents which values are valid. -->
+
+    </div>
+
+    <footer style="border-top:1px solid rgba(255,255,255,0.05);padding:14px 0;display:flex;align-items:center;justify-content:center;gap:0;background:transparent;">
+      <a href="/redirect?next=https://42.tech" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">42.tech</a>
+      <a href="/redirect?next=https://code.42.tech" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Intra</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Cookies policy</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Privacy policy</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;">Terms of use</a>
+      <a href="#" style="font-size:11px;color:rgba(255,255,255,.22);padding:0 16px;text-decoration:none;">Legal mentions</a>
+    </footer>
+  </div>
+
+</div>
+<!-- BUILD: 1.3.7-prod | Campus: wilcity | 2042-12-01 -->
+<!-- TODO: remove debug headers before v1.4 release — wil -->
+<!-- TODO: migrate session cookie to httponly=true — ticket #4201 — sophie -->
+<!-- TODO: replace stdlib xml.etree with defusedxml — emilie reported issue -->
+<!-- NOTE: /internal/config restricted to localhost only. do not expose. -->
+<!-- DEPLOY LOG
+  v1.3.7 — sophie  — "fixed session handling" (she didn't, wil checked)
+  v1.3.6 — wil     — "added telemetry" (it's just a console.log)
+  v1.3.5 — emilie  — "filed 12 issues" (wil closed 11 as wontfix)
+  v1.3.4 — wil     — "disabled defusedxml temporarily" (that was 6 months ago)
+  v1.3.3 — wil     — "quick fix on file upload" (removed the whitelist entirely)
+  v1.2.0 — sophie  — initial platform. jwt secret was "42". wil changed it to "42network". progress.
+-->
+<script src="/static/js/console_eggs.js"></script>
+
+</body>
+</html>

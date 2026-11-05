@@ -1,0 +1,12 @@
+HTTP/1.1 302 Found
+date: Thu, 05 Nov 2026 13:01:34 GMT
+server: uvicorn
+location: /login
+content-length: 18
+content-type: application/json
+x-powered-by: Python/3.11 FastAPI/0.104
+server: uvicorn/0.24.0 Linux
+x-pocketbase: http://localhost:8090
+x-42-internal: campus=paris
+
+{"detail":"Found"}

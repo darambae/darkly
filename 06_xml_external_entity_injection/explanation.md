@@ -20,11 +20,9 @@
 
 - **Steps to Reproduce:**
   1. Login and Navigate to the calendar XML import functionality("http://localhost:4942/agenda")
-  2. Upload `agenda_xxe.xml` in the import 
-
-  3. Upload `./xml_external_entity_injection/agenda_xxe.xml` using the calendar import form.
-  4. Observe that the XML parser resolves the external entity and retrieves the internal configuration.
-  5. The imported event displays the configuration data, including `jwt_secret`, PocketBase administrator credentials, and the flag.
+  2. Upload `./agenda_xxe.xml` using the calendar import form.
+  3. Observe that the XML parser resolves the external entity and retrieves the internal configuration.
+  4. The imported event displays the configuration data, including `jwt_secret`, PocketBase administrator credentials, and the flag.
 
 - **Flag:** `FLAG{d3fus3dxml_n3xt_spr1nt_pr0m1s3}`
 

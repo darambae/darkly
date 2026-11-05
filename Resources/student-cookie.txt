@@ -1,0 +1,3 @@
+# Netscape HTTP Cookie File
+# Generated for a local Darkly security lab. Do not commit.
+localhost	FALSE	/	FALSE	0	session	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4bDE2dmJvaTQ3ZG1hbmQiLCJsb2dpbiI6ImJlbmphbWluIiwicm9sZSI6InN0dWRlbnQiLCJleHAiOjE3OTM4ODk3MzB9.2J340p5t4-tZa8H26gO8eEV4_EHqmUIq28ToKbRrcP4

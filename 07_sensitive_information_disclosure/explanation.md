@@ -5,8 +5,7 @@
 - **OWASP Top 10 (2021):** A05 – Security Misconfiguration
 - **CWE-200:** Exposure of Sensitive Information to an Unauthorized Actor
 
-
-## Locations
+## Location
 
 - Configuration exposed through XXE: `http://127.0.0.1:4942/internal/config`
 - PocketBase administration interface: `http://localhost:8090/_/`
@@ -39,27 +38,20 @@ Exploiting the calendar XML import XXE vulnerability granted access to the restr
 5. Confirm that Darkly recognizes the updated role and permits access to the staff dashboard.
 6. Open the `internal_audit` collection and find the record containing `god-tier export OK — flag retained for the security audit:`.
 
-## Observed Result
+## Flag
 
-- The internal configuration exposed reusable administrator credentials and a signing secret.
-- The disclosed credentials successfully authenticated to PocketBase.
-- PocketBase administrator access allowed `jdoe`'s role to be changed from `student` to `god`.
-- Darkly trusted the backend role and granted the updated account staff-level access.
-- The administrator could access a protected audit record containing the impact flag.
-
-## Flags
- `FLAG{th3_und3rsc0r3_sl4sh_kn0ws_th3_w4y}`
-
-## Root Cause
-
-- Insecure XML Parsing: The calendar import allowed external entity resolution (XXE).
-- Exposed Internal Configuration: The /internal/config route returned sensitive administrative secrets without authentication, relying solely on weak network boundaries (127.0.0.1).
+`FLAG{th3_und3rsc0r3_sl4sh_kn0ws_th3_w4y}`
 
 ## Impact
 
 - Full compromise of the PocketBase administrative interface and backend database.
 - Exposure of critical JWT signing secrets and reusable administrator credentials.
 - Unauthorized user role manipulation (student to god) and access to restricted audit records.
+
+## Cause
+
+- Insecure XML Parsing: The calendar import allowed external entity resolution (XXE).
+- Exposed Internal Configuration: The /internal/config route returned sensitive administrative secrets without authentication, relying solely on weak network boundaries (127.0.0.1).
 
 ## Remediation
 

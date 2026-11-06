@@ -12,6 +12,7 @@
 - Example authenticated read-only endpoint for validation: `api/profile`, `api/grades', etc
 
 ## Discovery
+
 - `<!-- dorian: you can open anyone's /profile/<id> — the ids are in every link on the site. wil: privacy is a journey, not a destination. -->`
 - `v1.2.0 — sophie  — initial platform. jwt secret was "42". wil changed it to "42network". progress."`
 - A session JWT can be Base64URL-decoded to show claims such as `sub`, `login`, `role`, and `exp`. These claims are **not encrypted**, and this visibility alone is **not a vulnerability**.
@@ -25,13 +26,17 @@ These are different root causes and must not be confused. Encoding a new payload
 
 ## Steps to Reproduce
 
-   Run `./exploit.sh` (This script creates a jwt with an user's information and signing secret and send a POST request to change the role of the user as a cadet.)
+Run `./exploit.sh` (This script creates a jwt with an user's information and signing secret and send a POST request to change the role of the user as a cadet.)
 
 ## Flag
 
 No specific flag has been confirmed for this finding.
 
-## Root Cause
+## Impact
+
+An accepted forged JWT can impersonate another user and may allow requests under that user’s permissions. No separate role-update authorization flaw is established here.
+
+## Cause
 
 **Likely, if the exposed key was used:** A compromised HS256 signing key lets an attacker produce a JWT whose altered identity and role claims pass cryptographic verification. The use of predictable, hard-coded, or publicly exposed signing secrets breaks the trust model. The publicly visible claims are not the issue.
 
@@ -48,10 +53,3 @@ No specific flag has been confirmed for this finding.
 - Treat `role` in a JWT as trusted only after verification; consider checking current permissions server-side for sensitive actions.
 - Enforce server-side authorization for every resource and action, independent of a valid token.
 - Use `HttpOnly`, `Secure`, and appropriate `SameSite` settings for session cookies (separate defense-in-depth findings).
-
-## References
-
-- OWASP WSTG — Testing JSON Web Tokens: https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/06-Session_Management_Testing/10-Testing_JSON_Web_Tokens
-- OWASP Top 10 (2021) — Identification and Authentication Failures: https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
-- CWE-347 — Improper Verification of Cryptographic Signature: https://cwe.mitre.org/data/definitions/347.html
-- CWE-321 — Use of Hard-coded Cryptographic Key: https://cwe.mitre.org/data/definitions/321.html

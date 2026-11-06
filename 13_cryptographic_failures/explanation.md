@@ -43,10 +43,16 @@ A subsequent password change also caused the `pw_hint` field to **change**. This
 
 6. Compare the result to `pw_hint`. The values match.
 
-## Flag 
-   No flag was found 
+## Flag
 
-## Root Cause
+No flag was found
+
+## Impact
+
+If `pw_hint` is exposed, a fast unsalted digest can enable offline guesses of weak passwords. Access to this field by an ordinary user has not been established.
+
+## Cause
+
 - **Weak Password Hint Storage:** The application stores an unsalted MD5 hash derived from the user's password in the pw_hint field.
 MD5 is fast and predictable. If this hash is exposed, an attacker may be able to guess weak passwords by comparing MD5 hashes of common password candidates.
 

@@ -1,12 +1,9 @@
 # Darkly audit walkthrough
 
-## Current results
+## Summary
 
-- **Confirmed security findings:** 11
-- **Flags tied to confirmed findings:** 10
-- **Additional flag observed during follow-up testing:** 1
-
-The counts distinguish root-cause findings from attack-chain impact. The PocketBase administrator attack chain demonstrates the impact of XXE and exposed credentials, so it is not counted again as an independent vulnerability. The `/api/grades` observation is retained separately because the flag was visible for `jdoe`, but changing another account's role to `god` did not reproduce it.
+- ** Vulnerabilities with Flags :** 10
+- ** Vulnerabilities without Flags :** 4
 
 ## Reconnaissance
 
@@ -27,3 +24,4 @@ Navigation, HTML comments, browser behavior, and `robots.txt` revealed useful le
 | 11 | [Path Traversal](11_path_traversal/explanation.md) | `../` escaped the download directory and exposed `data/private_notes.txt` | `FLAG{d0t_d0t_sl4sh_4ll_th3_w4y_d0wn}` |
 | 12 | [JWT Forgery](12_jwt_forgery/explanation.md) | Anyone can create a jwt token with exposed user data and modify the user's data | None |
 | 13 | [Cryptographic_failures](13_cryptographic_failures/explanation.md) | Unsalted MD5 Password hint are saved in the database on PocketBase | None |
+| 14 | [Reflected_xss](14_reflected_xss/explanation.md) | Newsletter subscription input accepts inputs without validation.(even script) | None |

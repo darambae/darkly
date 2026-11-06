@@ -1,12 +1,10 @@
 # Sensitive Information Disclosure: PocketBase Administrator Credentials
 
-## Classification
+## Category
 
 - **OWASP Top 10 (2021):** A05 – Security Misconfiguration
 - **CWE-200:** Exposure of Sensitive Information to an Unauthorized Actor
-- **Verified impact:** Compromise of PocketBase administrator access and application-level privilege escalation
 
-The privilege escalation documented here is the verified impact of the exposed administrator credentials. It is not counted as a separate authorization vulnerability because the role modification was performed with a valid PocketBase administrator identity.
 
 ## Locations
 
@@ -18,9 +16,7 @@ The privilege escalation documented here is the verified impact of the exposed a
 
 ## Discovery
 
-The previously documented calendar-import XXE allowed the server to request the localhost-only `/internal/config` endpoint. Its response disclosed a JWT signing secret and PocketBase administrator credentials. Response headers also identified the PocketBase service at `http://localhost:8090`.
-
-Authentication through the PocketBase administrator interface and legacy authentication API confirmed that the disclosed credentials were valid.
+Exploiting the calendar XML import XXE vulnerability granted access to the restricted `/internal/config` endpoint. The response exposed a JWT signing secret and valid PocketBase administrator credentials in plaintext.
 
 ## Steps to Reproduce
 
@@ -51,27 +47,23 @@ Authentication through the PocketBase administrator interface and legacy authent
 - Darkly trusted the backend role and granted the updated account staff-level access.
 - The administrator could access a protected audit record containing the impact flag.
 
-## Flags : `FLAG{th3_und3rsc0r3_sl4sh_kn0ws_th3_w4y}`
+## Flags
+ `FLAG{th3_und3rsc0r3_sl4sh_kn0ws_th3_w4y}`
 
-## Root Cause and Trust Boundary
+## Root Cause
 
-The entry point was unsafe external-entity resolution in the calendar XML parser. The internal configuration endpoint then returned reusable secrets while relying on a localhost-only network boundary. Once the valid PocketBase administrator identity was compromised, administrative role changes and access to protected collections were expected capabilities of that identity.
-
-Therefore, the observed `student → god` change proves the severity of the credential disclosure. It does not prove that PocketBase incorrectly authorized the administrator's action. The separately documented mass-assignment finding demonstrates an independent authorization flaw in which a regular user can change their own role to `cadet`.
+- Insecure XML Parsing: The calendar import allowed external entity resolution (XXE).
+- Exposed Internal Configuration: The /internal/config route returned sensitive administrative secrets without authentication, relying solely on weak network boundaries (127.0.0.1).
 
 ## Impact
 
-- Compromise of the PocketBase administrative interface and API.
-- Exposure of a JWT signing secret and reusable administrator credentials.
-- Modification of application user roles.
-- Access to privileged application data and internal audit records.
+- Full compromise of the PocketBase administrative interface and backend database.
+- Exposure of critical JWT signing secrets and reusable administrator credentials.
+- Unauthorized user role manipulation (student to god) and access to restricted audit records.
 
 ## Remediation
 
-- Fix the XXE entry point by rejecting DTDs and external entities and using a hardened XML parser such as `defusedxml`.
-- Do not return credentials or signing secrets from application configuration endpoints.
-- Move secrets to a dedicated secret store and inject them at runtime.
-- Rotate the exposed administrator password and signing secret, then revoke affected tokens and sessions.
-- Restrict the PocketBase administration service to authorized operators and networks and enable stronger administrator authentication where supported.
-- Use least-privileged service identities for routine application operations.
-- Require server-side authorization and audit logging for role changes and protected collections.
+- **Harden XML Parsing:** Use secure parsers (e.g., defusedxml) and disable DTDs/external entity resolution.
+- **Secure Configuration Management:** Remove credentials and signing secrets from application endpoints; utilize secure runtime secret stores.
+- **Credential Rotation:** Immediately rotate exposed administrator passwords and JWT secrets, and invalidate active sessions.
+- **Access Control:** Restrict administrative interfaces to trusted networks and operators with strong authentication.

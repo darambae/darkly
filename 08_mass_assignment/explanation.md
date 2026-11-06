@@ -1,17 +1,16 @@
 
 # Mass Assignment: Profile Role Change
 
-- **Category:**
+## Category
   - OWASP A01:2021 – Broken Access Control
   - CWE-915 – Improperly Controlled Modification of Dynamically-Determined Object Attributes
   - CWE-269 – Improper Privilege Management
   - WSTG-ATHZ-03 – Testing for Privilege Escalation
 
-- **Location:**
+## Location
   - `http://localhost:4942/api/profile`
-  - HTTP Method: PATCH
 
-- **Discovery:**
+## Discovery
   While exploring the `/staff` page, the following message was found:
 
   "Cadet access required. Try PATCH /api/profile with the right fields."
@@ -20,7 +19,7 @@
 
   The vulnerability was tested using the `jdoe` account, whose role had first been reset to `student`.
 
-- **Steps to Reproduce:**
+## Steps to Reproduce
   1. Sign in to Darkly using a test account with the `student` role (e.g., `jdoe`).
   2. Open Chrome Developer Tools and retrieve the account's session cookie.
   3. Open Postman and create a new PATCH request to:
@@ -47,16 +46,16 @@
   8. Verify that the account's role has changed from `student` to `cadet`.
   9. Go to `http://localhost:4942/staff/dashboard` and find the flag in the warning `Cadet+ access granted — internal staff flag: `
 
-- **Flag:**
+## Flag
   `FLAG{just_p4tch_y0ur_0wn_r0l3_lol}`
 
-- **Cause:**
+## Cause
   - **Mass Assignment:** The profile update endpoint accepts a sensitive field (`role`) supplied directly by the client.
   - **Missing Field-Level Authorization:** The server does not prevent ordinary users from modifying authorization-related attributes.
   - **Privilege Escalation:** A user with the `student` role can assign themselves the higher-privileged `cadet` role.
   - **Improper Trust Boundary:** The application trusts client-controlled profile data when updating security-sensitive account properties.
 
-- **Remediation:**
+## Remediation
   - **Strict Field Allowlisting:** Only accept explicitly authorized profile fields, such as display name or profile preferences.
   - **Server-Side Authorization:** Prevent users from modifying their own roles through ordinary profile update endpoints.
   - **Separate Administrative Operations:** Restrict role changes to dedicated administrative endpoints with appropriate authorization checks.

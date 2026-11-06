@@ -1,6 +1,9 @@
 # Insecure Direct Object References: private profile note
 
-- **Category:** OWASP WSTG-ATHZ-04, Insecure Direct Object References; OWASP Top 10 A01:2021, Broken Access Control.
+- **Category:** 
+    OWASP WSTG-ATHZ-04, Insecure Direct Object References.
+    OWASP Top 10 A01:2021, Broken Access Control.
+
 - **Location:** `http://localhost:4942/profile/k1asdfeditojrb4`
 - **Discovery:** The site links to `wil`'s profile from a conversation. The profile identifier is visible in those links.
 - **Steps to reproduce:**

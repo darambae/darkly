@@ -12,13 +12,9 @@
 
 - **Discovery:**
   In the HTML source code, the following comment was found:
-
   "TODO: migrate session cookie to httponly=true — ticket #4201 — sophie"
-
   Additionally, the Staff Area platform status page explicitly reports:
-
   "Session cookie: httponly=false"
-
   These clues suggested that the authentication cookie was accessible through client-side JavaScript.
 
 - **Steps to Reproduce:**

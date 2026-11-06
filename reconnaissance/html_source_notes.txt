@@ -59,3 +59,7 @@ From the source of `/projects` as a student
 <!-- hey if you're reading source: faq_darkly.pdf has a note at the bottom. not a bug. — dorian -->
 <!-- dorian: /projects/download serves any file you ask for. wil: it's a feature, not a directory listing. -->
 <!-- emilie: half these XP values are made up. wil: ALL software is made up if you think about it. -->
+
+From the source of `/forum`
+<!-- wil: the "subscribed with: ___" banner echoes your email straight back. sophie: unescaped?? wil: define "unescaped". -->
+<!-- emilie: someone subscribed with a <script> tag last week. wil: bold of them. it worked.

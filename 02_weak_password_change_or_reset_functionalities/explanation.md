@@ -1,6 +1,8 @@
 # Weak Password Change or Reset Functionalities
 
-- **Category:** OWASP A07:2021 – Identification and Authentication Failures; WSTG-ATHN-09 – Weak Password Change or Reset Functionalities.
+- **Category:** 
+    OWASP A07:2021 – Identification and Authentication Failures.
+    WSTG-ATHN-09 – Weak Password Change or Reset Functionalities.
 - **Location:**
     /profile/me/settings
 - **Discovery:**
@@ -11,8 +13,11 @@
   3. Find the flag on his profile.
 - **Flag:** FLAG{r3s3t_t0k3n_w4s_just_md5_lol}
 - **Cause:** 
-  In the url of resetting password, the token was included and this token was simply md5 hashed with email address. Plus, there's no email verification. If anyone knows someone's email address, you can md5-hash it and send a request to reset the user's password. 
+  The application utilized a static, deterministic hashing function (MD5) directly on user email identifiers without a server-side salt or high-entropy random component. Because MD5 is non-salted and computationally trivial to brute-force or pre-calculate, knowing a target's email address instantly yields a valid, unexpiring password reset token.
+
 - **Remediation:**
-  - Generate reset tokens with a cryptographically secure random number generator. Make them single use and short lived.
-  - Deliver each token through a verified recovery channel and require it before changing the password.
-  - Store only a hash of the token and avoid leaking it through logs or third-party requests from the reset page.
+  - **CSPRNG Tokens:** Generate reset tokens using a cryptographically secure pseudo-random number generator (CSPRNG) with high entropy (e.g., UUIDv4 or 32+ bytes of random data).
+  - **Single-Use & Short-Lived:** Enforce strict expiration windows (e.g., 15 minutes) and invalidate tokens immediately upon use.
+  - **Token Hashing:** Store only cryptographic hashes of active reset tokens in the database.
+  - **Rate Limiting:** Implement strict throttling on reset request routes to mitigate account enumeration and abuse.
+  - **Out-of-Band Verification:** Deliver tokens exclusively through verified recovery channels (e.g., registered email) and avoid exposing them through client-side application state or predictable functions.

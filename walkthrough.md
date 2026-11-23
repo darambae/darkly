@@ -2,8 +2,8 @@
 
 ## Summary
 
-- ** Vulnerabilities with Flags :** 10
-- ** Vulnerabilities without Flags :** 4
+- Vulnerabilities with Flags : 10
+- Vulnerabilities without Flags : 5
 
 ## Reconnaissance
 
@@ -23,5 +23,6 @@ Navigation, HTML comments, browser behavior, and `robots.txt` revealed useful le
 | 10 | [Cross-Site Request Forgery Protection Weakness](10_cross_site_request_forgery/explanation.md) | The server accepted a state-changing request with an external `Origin` and no CSRF token | `FLAG{csrf_4ny_0r1g1n_1s_w3lc0m3}` |
 | 11 | [Path Traversal](11_path_traversal/explanation.md) | `../` escaped the download directory and exposed `data/private_notes.txt` | `FLAG{d0t_d0t_sl4sh_4ll_th3_w4y_d0wn}` |
 | 12 | [JWT Forgery](12_jwt_forgery/explanation.md) | Anyone can create a jwt token with exposed user data and modify the user's data | None |
-| 13 | [Cryptographic_failures](13_cryptographic_failures/explanation.md) | Unsalted MD5 Password hint are saved in the database on PocketBase | None |
-| 14 | [Reflected_xss](14_reflected_xss/explanation.md) | Newsletter subscription input accepts inputs without validation.(even script) | None |
+| 13 | [Cryptographic failures](13_cryptographic_failures/explanation.md) | Unsalted MD5 Password hint are saved in the database on PocketBase | None |
+| 14 | [Reflected xss](14_reflected_xss/explanation.md) | Newsletter subscription input accepts inputs without validation(even script) | None |
+| 15 | [Open redirect](15_open_redirect/explanation.md) | User can be redirected to an external website by using `redirect?next=` in the url | None |

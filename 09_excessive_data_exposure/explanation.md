@@ -2,7 +2,7 @@
 
 ## Category
 
-- OWASP A01:2021 – Broken Access Control (if the endpoint is accessible without the required authorization)
+- OWASP A01:2021 – Broken Access Control
 - OWASP A04:2021 – Insecure Design / Excessive Data Exposure
 - WSTG-ATHZ-02 – Testing for Bypassing Authorization Schema
 - CWE-200 – Exposure of Sensitive Information to an Unauthorized Actor

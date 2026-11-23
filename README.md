@@ -1,19 +1,33 @@
 # Darkly
 
-Start with the [combined walkthrough](walkthrough.md), then open each finding's `explanation.md` for reproduction steps, impact, and remediation. [Reconnaissance notes](reconnaissance/reconnaissance_notes.txt) contain leads and observations rather than a separate breach.
+This repository documents a security assessment of the local Darkly web application. It contains 15 findings covering access control, authentication, injection, data exposure, and session handling. Each numbered directory has an `explanation.md` with the finding's reproduction steps, impact, and remediation. Some directories also include an `exploit.sh` to reproduce the finding against the local lab.
 
-The directory names are lowercase snake_case versions of OWASP breach or testing-guide terms. The names identify the specific finding where possible; broad OWASP Top 10 categories remain in each explanation. In particular, `security_misconfiguration` covers the session cookie without `HttpOnly`, and `sensitive_information_disclosure` covers the credentials exposed through the XXE chain.
+This README is a **project and folder index**. For the combined audit results and flags, read the [walkthrough](walkthrough.md). For a specific finding's evidence and steps, open its `explanation.md` below.
 
-| Directory | OWASP term used |
-| --- | --- |
-| `insecure_direct_object_references` | [Insecure Direct Object References](https://wstg.owasp.org/latest/4-Web_Application_Security_Testing/05-Authorization/04-Insecure_Direct_Object_References/) |
-| `weak_password_change_or_reset_functionalities` | [Weak Password Change or Reset Functionalities](https://wstg.owasp.org/latest/4-Web_Application_Security_Testing/04-Authentication/09-Weak_Password_Change_or_Reset_Functionalities/) |
-| `unrestricted_file_upload` | [Unrestricted File Upload](https://community.owasp.org/vulnerabilities/Unrestricted_File_Upload) |
-| `stored_cross_site_scripting` | [Stored Cross Site Scripting](https://wstg.owasp.org/latest/4-Web_Application_Security_Testing/07-Injection/02-Stored_Cross_Site_Scripting/) |
-| `security_misconfiguration` | [Security Misconfiguration](https://top10.owasp.org/2021/A05_2021-Security_Misconfiguration/) |
-| `xml_external_entity_injection` | [XML External Entity (XXE) Injection](https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html) |
-| `sensitive_information_disclosure` | Sensitive Information Disclosure, as used in the [OWASP testing guide](https://owasp.org/www-project-web-security-testing-guide/assets/archive/OWASP_Testing_Guide_v4.pdf) |
-| `mass_assignment` | [Mass Assignment](https://wstg.owasp.org/latest/4-Web_Application_Security_Testing/07-Injection/20-Mass_Assignment/) |
-| `excessive_data_exposure` | [Excessive Data Exposure](https://wstg.owasp.org/latest/4-Web_Application_Security_Testing/12-API_Testing/03-Excessive_Data_Exposure/) |
+## Finding directories
 
-The [project subject](en.subject.pdf) requests a reproduction script for each reported breach. Those scripts are not yet present in this repository. Existing screenshots and the PDF are also binary files, while the subject says the submission must not contain binaries; review that conflict before final submission.
+| Directory name | Finding | Script included? |
+| --- | --- | --- |
+| [01_insecure_direct_object_references](01_insecure_direct_object_references/explanation.md) | Private profile note accessible through another user's ID | No |
+| [02_weak_password_change_or_reset_functionalities](02_weak_password_change_or_reset_functionalities/explanation.md) | Predictable password reset token | Yes: [exploit.sh](02_weak_password_change_or_reset_functionalities/exploit.sh) |
+| [03_unrestricted_file_upload](03_unrestricted_file_upload/explanation.md) | Avatar upload accepts an unexpected file type | No |
+| [04_stored_xss](04_stored_xss/explanation.md) | Stored JavaScript in forum content | No |
+| [05_security_misconfiguration](05_security_misconfiguration/explanation.md) | Session cookie lacks `HttpOnly` | No |
+| [06_xml_external_entity_injection](06_xml_external_entity_injection/explanation.md) | XML import reads an internal resource | No |
+| [07_sensitive_information_disclosure](07_sensitive_information_disclosure/explanation.md) | PocketBase administrator credentials exposed | No |
+| [08_mass_assignment](08_mass_assignment/explanation.md) | Profile API permits a role change | Yes: [exploit.sh](08_mass_assignment/exploit.sh) |
+| [09_excessive_data_exposure](09_excessive_data_exposure/explanation.md) | Grades API exposes another student's data | No |
+| [10_cross_site_request_forgery](10_cross_site_request_forgery/explanation.md) | Profile update accepts a cross-origin request | Yes: [exploit.sh](10_cross_site_request_forgery/exploit.sh) |
+| [11_path_traversal](11_path_traversal/explanation.md) | File download permits path traversal | Yes: [exploit.sh](11_path_traversal/exploit.sh) |
+| [12_jwt_forgery](12_jwt_forgery/explanation.md) | Weak signing secret permits forged JWTs | Yes: [exploit.sh](12_jwt_forgery/exploit.sh); [cookie generator](12_jwt_forgery/generate_role_cookies.sh) |
+| [13_cryptographic_failures](13_cryptographic_failures/explanation.md) | Unsalted MD5 password hints in PocketBase | No |
+| [14_reflected_xss](14_reflected_xss/explanation.md) | Newsletter input reflects JavaScript | No |
+| [15_open_redirect](15_open_redirect/explanation.md) | Redirect accepts an external destination | No |
+
+“No” means there is no reproduction script in that directory; the `explanation.md` describes the manual steps. The scripts target the local lab and some change application data. Read the corresponding explanation and check the script's account, cookie, and URL settings before running it.
+
+## Other files and folders
+
+- [`reconnaissance/`](reconnaissance/reconnaissance_notes.txt) contains initial observations, screenshots, and leads. It is not a separate finding.
+- [`Resources/`](Resources/) contains shared sample files and session data used during the assessment.
+- [`walkthrough.md`](walkthrough.md) combines the findings, verified results, and flags in one audit narrative.

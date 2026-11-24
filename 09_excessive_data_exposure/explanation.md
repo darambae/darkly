@@ -17,7 +17,7 @@
 - After gaining access to the Staff Dashboard with the `jdoe` account (whose role had been changed to `god` through the previously documented PocketBase administration compromise), the dashboard displayed links to API resources.
 - `<!-- sophie: /api/docs-internal still accessible without staff check — TODO fix in v1.4 -->`
 ```
-  "grades":{"fields":["id","student","project","score","flag"],"note":"flag field accessible via GET /api/grades?student={id}"}
+  "grades":{"fields":["id","student","project","score","flag"],"note":"flag field accessible via GET /api/grades?student=02g7nfbtw0k83fu{id}"}
 ```
 
 ## Steps to Reproduce
@@ -35,13 +35,13 @@
 
 ## Cause
 
-- **Excessive Data Exposure:** The grades endpoint serializes expanded project records that include a sensitive `flag` field, even though the grades response does not need to reveal that value.
-- **Insufficient Response Filtering:** Sensitive fields are not removed from the API response before it is sent to the client.
-- **Authorization Scope Not Yet Established:** The observed request was made after obtaining elevated privileges. Additional testing with a guest or ordinary student account is required before concluding that `/api/grades` itself is accessible without authorization.
+- **Missing Role Authorization:** The staff-only `/api/grades` endpoint accepts requests from an ordinary student account. Restricting the Staff Dashboard does not protect the API endpoint itself.
+- **Missing Student-Level Authorization:** The endpoint uses the caller-supplied `student` ID to return that student's full project and grade records without checking whether the caller is allowed to view them.
+- **Excessive Data Exposure:** The response expands project records and includes a sensitive `flag` field that the grades feature does not need to disclose.
 
 ## Remediation
 
-- **Minimize API Responses:** Return only the fields required by the grades feature; never include challenge flags or secrets in expanded project objects.
-- **Enforce Server-Side Authorization:** Check authentication and per-record permissions before returning grades and related project information.
-- **Apply Field-Level Access Controls:** Exclude sensitive project fields from API serialization for users who do not explicitly need them.
-- **Test Different Roles:** Add automated checks for visitor, student, staff, and administrator access to the endpoint.
+- **Enforce the Staff Role on the API:** Check the authenticated caller's role on every `/api/grades` request and reject student requests, regardless of whether the Staff Dashboard is hidden from them.
+- **Authorize Access to the Requested Student:** Before querying or returning records, verify that the caller is permitted to view the student identified by the `student` parameter. Do not treat knowledge of a student ID as permission.
+- **Minimize and Filter Responses:** Return only the grade and project fields needed by authorized staff; exclude `flag` and other sensitive fields from expanded project objects.
+- **Test Authorization Boundaries:** Add automated checks that visitors and students cannot retrieve another student's records by changing the `student` ID, while authorized staff can access only the records permitted by their role.

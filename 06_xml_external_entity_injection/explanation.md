@@ -2,14 +2,14 @@
 
 ## Category
 
-- OWASP A05:2021 – Security Misconfiguration
-- WSTG-INPV-07 – Testing for XML Injection
-- CWE-611 – Improper Restriction of XML External Entity Reference
+- **OWASP A05:2021 – Security Misconfiguration**
+- **WSTG-INPV-07 – Testing for XML Injection**
+- **CWE-611 – Improper Restriction of XML External Entity Reference**
 
 ## Location
 
 - Calendar XML import functionality
-- Internal endpoint: `/internal/config`
+- Internal endpoint: `http://localhost:4942/internal/config`
 
 ## Discovery
 
@@ -20,8 +20,8 @@ These comments suggested that XML parsing was insufficiently secured and that an
 
 ## Steps to Reproduce
 
-1. Login and Navigate to the calendar XML import functionality("http://localhost:4942/agenda")
-2. Upload `./agenda_xxe.xml` using the calendar import form.
+1. Login and navigate to the calendar XML import functionality('http://localhost:4942/agenda')
+2. Upload `Resources/agenda_xxe.xml` using the calendar import form.
 3. Observe that the XML parser resolves the external entity and retrieves the internal configuration.
 4. The imported event displays the configuration data, including `jwt_secret`, PocketBase administrator credentials, and the flag.
 
@@ -42,8 +42,7 @@ The XML import can disclose internal configuration, including credentials, signi
 
 ## Remediation
 
-- **Secure XML Parsing:** Use `defusedxml` and explicitly disable DTDs and external entity resolution.
-- **Restrict Internal Requests:** Prevent untrusted input from causing requests to internal or loopback addresses.
-- **Protect Internal Endpoints:** Require appropriate authentication and authorization for sensitive configuration endpoints.
-- **Secrets Management:** Store credentials securely, avoid exposing them through application responses, and rotate any compromised secrets.
-- **Input Validation:** Validate the expected XML structure and impose file-size and processing limits.
+- **Secure XML Parsing:** Explicitly disable DTDs and external entity resolution.
+- **Restrict XML-Initiated Requests:** Reject external XML references. Where outbound requests are required for other features, allow only explicitly approved destinations and restrict unnecessary network access.
+- **Protect Internal Endpoints:** Require authentication and authorization for `/internal/config`; do not rely on loopback access alone or return secrets that callers do not need.
+- **Validate XML and Limit Resources:** Enforce the expected agenda structure and values after secure parsing; limit upload size and parser resource use before processing.

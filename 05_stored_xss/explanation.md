@@ -2,12 +2,12 @@
 
 ## Category
 
-OWASP A03:2021 — Injection
-WSTG 4.7 — Stored XSS
+- **OWASP A03:2021 — Injection**
+- **WSTG 4.7 — Stored XSS**
 
 ## Location
 
-`/forum`
+`http://localhost:4942/forum`
 
 ## Discovery
 
@@ -37,7 +37,7 @@ A reader of the forum post can execute attacker-supplied JavaScript; the documen
 ## Cause
 
 - **Lack of Output Encoding & Auto-Escaping:** User-supplied input is stored raw in the database and rendered directly into the DOM or HTML response without sanitization or context-aware output encoding.
-- **Insecure Cookie Design (Missing HttpOnly):** Authentication cookies or tokens are accessible via JavaScript (`document.cookie`), enabling seamless session theft via XSS.
+- **Insecure Cookie Design (Missing HttpOnly - ):** Authentication cookies or tokens are accessible via JavaScript (`document.cookie`), enabling seamless session theft via XSS.
 - **Unsecured Debug Artifacts:** Leftover development endpoints (`/api/collect`) act as convenient data exfiltration drop-zones for attackers.
 
 ## Remediation

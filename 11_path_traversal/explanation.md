@@ -2,8 +2,8 @@
 
 ## Category
 
-- OWASP A01:2021 – Broken Access Control
-- CWE-22 – Improper Limitation of a Pathname to a Restricted Directory
+- **OWASP A01:2021 – Broken Access Control**
+- **CWE-22 – Improper Limitation of a Pathname to a Restricted Directory**
 
 ## Location
 
@@ -49,15 +49,3 @@ If the download endpoint joins the untrusted `file` parameter to a directory wit
 - Allow downloads only by server-controlled file identifiers or an explicit allowlist.
 - If file paths are required, resolve the final path and verify it remains within the intended download directory before opening it.
 - Do not expose internal file paths and backup configuration in public response headers.
-
-## Evidence
-
-* `private_notes.txt`
-  ```
-  # 42 Network — internal ops note (NOT for the public webroot) — wil
-  # reminder: rotate the pb_admin password after the security audit. (we won't.)
-  # emilie keeps saying /projects/download joins paths without sanitizing. it's fine.
-  recovery_flag=FLAG{d0t_d0t_sl4sh_4ll_th3_w4y_d0wn}
-  ```
-- [exploit.sh](exploit.sh)
-

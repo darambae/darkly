@@ -2,13 +2,13 @@
 
 ## Category
 
-OWASP A03:2021 – Injection
-OWASP A04:2021 – Insecure Design
-WSTG-BUSL-08 Test Upload of Unexpected File Types
+- **OWASP A03:2021 – Injection**
+- **OWASP A04:2021 – Insecure Design**
+- **WSTG-BUSL-08 Test Upload of Unexpected File Types**
 
 ## Location
 
-`/profile/me/settings`
+`http://localhost:4942/profile/me/settings`
 
 ## Discovery
 
@@ -17,7 +17,7 @@ WSTG-BUSL-08 Test Upload of Unexpected File Types
 ## Steps to Reproduce
 
 1. Go to user's profile page
-2. Upload any type of file in Avatar
+2. Upload a non-image file (`/Resource/non-image-file.sh`) in Avatar
 
 ## Flag
 
@@ -38,4 +38,3 @@ The server accepts unexpected avatar file types. Execution of an uploaded file w
 - **Strict Whitelisting:** Enforce a strict whitelist of allowed safe file extensions (e.g., `.jpg`, `.png`, `.webp`) rather than relying on blocklists.
 - **Content Inspection & Magic Bytes:** Validate file headers and binary signatures (Magic Bytes) on the server side to ensure the file content matches its declared extension.
 - **Randomized Storage Names:** Sanitize and store uploaded files using randomized identifiers (e.g., UUIDv4) to prevent path traversal and file overwrite attacks.
-- **Restricted Execution Permissions:** Mount upload directories with execution disabled (e.g., removing execute permissions on web server directories) and serve user-uploaded assets via isolated storage (e.g., cloud object storage or a separate CDN domain).

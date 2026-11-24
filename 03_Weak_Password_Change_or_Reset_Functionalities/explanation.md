@@ -2,12 +2,12 @@
 
 ## Category
 
-OWASP A07:2021 – Identification and Authentication Failures.
-WSTG-ATHN-09 – Weak Password Change or Reset Functionalities.
+- **OWASP A07:2021 – Identification and Authentication Failures.**
+- **WSTG-ATHN-09 – Weak Password Change or Reset Functionalities.**
 
 ## Location
 
-/profile/me/settings
+`http://localhost:4942/profile/me/settings`
 
 ## Discovery
 
@@ -23,7 +23,7 @@ http://localhost:4942/forum/r8y1ib6ub8g47u2
 
 ## Flag
 
-FLAG{r3s3t_t0k3n_w4s_just_md5_lol}
+`FLAG{r3s3t_t0k3n_w4s_just_md5_lol}`
 
 ## Impact
 

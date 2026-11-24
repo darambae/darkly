@@ -11,8 +11,8 @@ This README is a **project and folder index**. For the combined audit results an
 | [01_insecure_direct_object_references](01_insecure_direct_object_references/explanation.md) | Private profile note accessible through another user's ID | No |
 | [02_weak_password_change_or_reset_functionalities](02_weak_password_change_or_reset_functionalities/explanation.md) | Predictable password reset token | Yes: [exploit.sh](02_weak_password_change_or_reset_functionalities/exploit.sh) |
 | [03_unrestricted_file_upload](03_unrestricted_file_upload/explanation.md) | Avatar upload accepts an unexpected file type | No |
-| [04_stored_xss](04_stored_xss/explanation.md) | Stored JavaScript in forum content | No |
-| [05_security_misconfiguration](05_security_misconfiguration/explanation.md) | Session cookie lacks `HttpOnly` | No |
+| [04_security_misconfiguration](05_security_misconfiguration/explanation.md) | Session cookie lacks `HttpOnly` | No |
+| [05_stored_xss](04_stored_xss/explanation.md) | Stored JavaScript in forum content | No |
 | [06_xml_external_entity_injection](06_xml_external_entity_injection/explanation.md) | XML import reads an internal resource | No |
 | [07_sensitive_information_disclosure](07_sensitive_information_disclosure/explanation.md) | PocketBase administrator credentials exposed | No |
 | [08_mass_assignment](08_mass_assignment/explanation.md) | Profile API permits a role change | Yes: [exploit.sh](08_mass_assignment/exploit.sh) |

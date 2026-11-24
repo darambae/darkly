@@ -9,7 +9,7 @@
 ## Location
 
 - Authentication cookie: `session` (JWT, `HS256`)
-- Example authenticated read-only endpoint for validation: `api/profile`, `api/grades', etc
+- Example authenticated read-only endpoint for validation: `api/profile`, `api/grades`, etc
 
 ## Discovery
 
@@ -17,12 +17,7 @@
 - `v1.2.0 — sophie  — initial platform. jwt secret was "42". wil changed it to "42network". progress."`
 - A session JWT can be Base64URL-decoded to show claims such as `sub`, `login`, `role`, and `exp`. These claims are **not encrypted**, and this visibility alone is **not a vulnerability**.
 
-However, when a token is created with another test user's known account information was accepted by the application. This indicates that either:
-
-1. The attacker could sign the altered claims using a **known / weak / exposed HS256 secret**, or
-2. The server **failed to validate the JWT signature** correctly.
-
-These are different root causes and must not be confused. Encoding a new payload without a valid signature does not create a valid JWT in a correctly implemented system.
+However, when a token is created with another test user's known account information was accepted by the application. This indicates that the attacker could sign the altered claims using a **known / weak / exposed HS256 secret**
 
 ## Steps to Reproduce
 
@@ -39,8 +34,6 @@ An accepted forged JWT can impersonate another user and may allow requests under
 ## Cause
 
 **Likely, if the exposed key was used:** A compromised HS256 signing key lets an attacker produce a JWT whose altered identity and role claims pass cryptographic verification. The use of predictable, hard-coded, or publicly exposed signing secrets breaks the trust model. The publicly visible claims are not the issue.
-
-**Alternative, not yet proven:** The application accepts tokens even when their signatures are invalid (improper signature verification).
 
 **Authorization impact:** If a forged token is accepted as another user, the server may process requests under that user's identity and permissions. This is impersonation and can lead to horizontal or vertical privilege escalation. It does **not** establish a separate role-update authorization bug.
 

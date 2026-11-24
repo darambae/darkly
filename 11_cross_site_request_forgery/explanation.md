@@ -1,14 +1,14 @@
-# Testing for Cross Site Request Forgery (CSRF)
+# Cross Site Request Forgery (CSRF)
 
 ## Category
 
-- OWASP WSTG-SESS-05 — Testing for Cross Site Request Forgery
-- CWE-352 — Cross-Site Request Forgery
-- OWASP A01:2021 — Broken Access Control
+- **OWASP WSTG-SESS-05 — Testing for Cross Site Request Forgery**
+- **CWE-352 — Cross-Site Request Forgery**
+- **OWASP A01:2021 — Broken Access Control**
 
 ## Location
 
-- `POST /profile/me/settings`
+- `http://localhost:4942/profile/me/settings`
 
 ## Discovery
 
@@ -22,7 +22,7 @@ After refreshing the profile page, the submitted changes were confirmed to have 
 
 1. Sign in with a test account and save its valid `session` cookie.
 2. Send `POST /profile/me/settings` with that cookie, profile fields, and an external `Origin` header, as shown in [`exploit.sh`](exploit.sh).
-3. Observe the redirect containing the challenge flag, then refresh the profile page and confirm the changes persisted.
+3. Observe the reponse containing the challenge flag, then refresh the profile page and confirm the changes persisted.
 
 ## Flag
 
@@ -46,7 +46,3 @@ The endpoint lacks effective server-side CSRF protection for the tested request.
 - Validate the `Origin` header, with appropriate `Referer` fallback handling.
 - Retain `SameSite=Lax` or `Strict` as an additional protective layer.
 - Ensure that GET endpoints do not perform state-changing operations.
-
-## Evidence
-
-- [exploit.sh](exploit.sh)

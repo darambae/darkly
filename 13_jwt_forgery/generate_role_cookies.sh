@@ -33,7 +33,6 @@ with users_path.open('r', encoding='utf-8') as f:
 if not isinstance(users, list):
     raise SystemExit('[ERROR] users.json must be a JSON array')
 
-# One representative account per role, preserving JSON order.
 selected = {}
 for user in users:
     if not isinstance(user, dict):

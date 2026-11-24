@@ -2,9 +2,9 @@
 
 ## Category
 
-- OWASP A05:2021 – Security Misconfiguration
-- CWE-1004 – Sensitive Cookie Without 'HttpOnly' Flag
-- WSTG-SESS-02 – Testing for Cookies Attributes
+- **OWASP A05:2021 – Security Misconfiguration**
+- **CWE-1004 – Sensitive Cookie Without 'HttpOnly' Flag**
+- **WSTG-SESS-02 – Testing for Cookies Attributes**
 
 ## Location
 

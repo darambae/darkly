@@ -14,6 +14,10 @@ The `/redirect` endpoint accepts a user-controlled `next` parameter and redirect
 
 ## Steps to Reproduce
 
+Run `./exploit.sh` from this directory. It sends a request to the local lab, checks for a `307` response with `Location: https://example.com`, and does not follow the redirect.
+
+To verify manually:
+
 1. Open the following URL:
 
    `http://localhost:4942/redirect?next=https://example.com`

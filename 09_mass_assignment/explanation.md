@@ -19,11 +19,14 @@ While exploring the `/staff` page, the following message was found:
 
 This suggested that the profile update endpoint might allow users to modify sensitive attributes, including their authorization role.
 
-The vulnerability was tested using the `jdoe` account, whose role had first been reset to `student`.
+The vulnerability was tested using the `dorian` account, whose role is `student`.
 
 ## Steps to Reproduce
 
-1. Sign in to Darkly using a test account with the `student` role (e.g., `jdoe`).
+Run `exploit.sh` (This script uses pre-made cookie from `03_weak_password_change_or_reset_functionalities/exploit.sh` to changed the role of `dorian` from `student` to `cadet`)
+Or follow the steps below:
+
+1. Sign in to Darkly using a test account with the `student` role (e.g., `dorian`).
 2. Open Chrome Developer Tools and retrieve the account's session cookie.
 3. Open Postman and create a new PATCH request to:
 

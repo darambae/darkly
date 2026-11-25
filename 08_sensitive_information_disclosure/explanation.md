@@ -18,6 +18,9 @@
 Exploiting the calendar XML import XXE vulnerability granted access to the restricted `/internal/config` endpoint. The response exposed a JWT signing secret and valid PocketBase administrator credentials in plaintext.
 
 ## Steps to Reproduce
+Run `exploit.sh` (This script will login PocketBase as admin user and change an user's role to `god`. After, it sends a GET request to `internal_audit` collection.)
+
+Or manually test following the steps:
 
 1. Reproduce the [XML External Entity Injection](../06_xml_external_entity_injection/explanation.md) and retrieve `/internal/config` through the calendar import.
 2. Observe that the configuration includes a JWT secret and PocketBase administrator credentials. Record evidence with the secret values redacted:

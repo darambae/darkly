@@ -10,7 +10,7 @@
 `http://localhost:4942/forum`
 
 ## Discovery
-
+- `http://localhost:4942/forum/6viy7xi64gxpan3`
 - `<!-- note to self: the "HTML supported" label is not a joke. content goes straight into the DB. don't tell students. — wil -->`
 - `<!-- wil: left /api/collect up from when I was debugging the bot — it logs whatever you throw at ?c= and hands it all back on GET. sophie: that is an open exfil log. wil: it's a DEBUG endpoint. -->`
 

@@ -22,7 +22,7 @@ This README is a **project and folder index**. For the combined audit results an
 | [12_jwt_forgery](12_jwt_forgery/explanation.md) | Weak signing secret permits forged JWTs | Yes: [exploit.sh](12_jwt_forgery/exploit.sh); [cookie generator](12_jwt_forgery/generate_role_cookies.sh) |
 | [13_cryptographic_failures](13_cryptographic_failures/explanation.md) | Unsalted MD5 password hints in PocketBase | No |
 | [14_reflected_xss](14_reflected_xss/explanation.md) | Newsletter input reflects JavaScript | No |
-| [15_open_redirect](15_open_redirect/explanation.md) | Redirect accepts an external destination | No |
+| [15_open_redirect](15_open_redirect/explanation.md) | Redirect accepts an external destination | Yes: [exploit.sh](15_open_redirect/exploit.sh) |
 
 “No” means there is no reproduction script in that directory; the `explanation.md` describes the manual steps. The scripts target the local lab and some change application data. Read the corresponding explanation and check the script's account, cookie, and URL settings before running it.
 

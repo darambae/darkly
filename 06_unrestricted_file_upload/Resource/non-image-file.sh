@@ -1,3 +1,2 @@
-#!/usr/bin/env bash
-
-echo "[*] Uploading non-image file to the server..."
+#!/bin/sh
+echo "This is not an image. Unrestricted file upload PoC."

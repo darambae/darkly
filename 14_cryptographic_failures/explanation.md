@@ -27,6 +27,9 @@ A subsequent password change also caused the `pw_hint` field to **change**. This
 
 ## Steps to Reproduce
 
+Run `./exploit.sh` (This script logs in PocketBase as admin account and compare Benjamin's pw_hint value before & after changing his password. It confirms the pw_hint corresponds to the unsalted md5 value of the new password)
+To test it manually,
+
 1. Reset an user's password to `abc123`
 2. Open the PocketBase admin interface at `http://localhost:8090/_/` using the lab's authorized administrator access.
 3. Navigate to the `users` collection and locate the user's record.

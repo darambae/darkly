@@ -2,8 +2,8 @@
 
 ## Category
 
-- OWASP A05:2025 – Injection
-- WSTG-INPV-01 – Testing for Reflected Cross Site Scripting
+- **OWASP A05:2025 – Injection**
+- **WSTG-INPV-01 – Testing for Reflected Cross Site Scripting**
 
 ## Location
 

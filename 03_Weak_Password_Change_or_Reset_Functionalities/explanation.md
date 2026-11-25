@@ -12,6 +12,8 @@
 ## Discovery
 
 In the Benjamin's post on Forum, he gave a hint about resetting passwords.
+http://localhost:4942/forum/r8y1ib6ub8g47u2
+"And get this: that token is literally the md5 of my email address."
 
 ## Steps to Reproduce
 

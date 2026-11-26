@@ -21,6 +21,10 @@ The newsletter subscription form reflects user input without properly escaping H
 
 ## Steps to Reproduce
 
+Run `exploit.sh` (This script will send a POST request to subscribe to newsletter with a script instead of an email address. If the response includes this script without escaping, it confirms this breach.)
+
+Or follow the steps :
+
 1. Navigate to the Newsletter subscription page. (Login not necessary)
 2. Enter the following payload in the email field:
 

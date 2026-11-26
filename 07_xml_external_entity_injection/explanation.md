@@ -20,7 +20,11 @@ These comments suggested that XML parsing was insufficiently secured and that an
 
 ## Steps to Reproduce
 
-1. Login and navigate to the calendar XML import functionality('http://localhost:4942/agenda')
+Run `exploit.sh`. (This script will upload the prepared xml file`Resources/agenda_xxe.xml` in `/agenda` which injects an external entity sending GET request to `/internal/config`. If the request is successful, the script will find the flag in the response.)
+
+Or follow the steps to reproduce manually :
+
+1. Login and navigate to the calendar XML import functionality('http://localhost:4942/agenda/import')
 2. Upload `Resources/agenda_xxe.xml` using the calendar import form.
 3. Observe that the XML parser resolves the external entity and retrieves the internal configuration.
 4. The imported event displays the configuration data, including `jwt_secret`, PocketBase administrator credentials, and the flag.

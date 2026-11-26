@@ -17,7 +17,7 @@
 - After gaining access to the Staff Dashboard with the `jdoe` account (whose role had been changed to `god` through the previously documented PocketBase administration compromise), the dashboard displayed links to API resources.
 - `<!-- sophie: /api/docs-internal still accessible without staff check — TODO fix in v1.4 -->`
 ```
-  "grades":{"fields":["id","student","project","score","flag"],"note":"flag field accessible via GET /api/grades?student=02g7nfbtw0k83fu{id}"}
+  "grades":{"fields":["id","student","project","score","flag"],"note":"flag field accessible via GET /api/grades?student={id}"}
 ```
 
 ## Steps to Reproduce

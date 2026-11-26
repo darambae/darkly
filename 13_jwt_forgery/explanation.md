@@ -21,7 +21,7 @@ However, when a token is created with another test user's known account informat
 
 ## Steps to Reproduce
 
-Run `./exploit.sh` (This script creates a jwt with an user's information and signing secret and send a POST request to change the role of the user as a cadet.)
+Run `./exploit.sh` (This script creates jwt files(`Resources/<ROLE>-cookie.txt`) with the information from `users.json` found in the darkly website and change the role of an user using `<ROLE>-cookie.txt`.)
 
 ## Flag
 

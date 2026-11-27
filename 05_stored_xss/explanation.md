@@ -16,6 +16,8 @@
 
 ## Steps to Reproduce
 
+Run `exploit.sh` or follow :
+
 1. Navigate to the Forum tab and create a new post.
 2. Inject an active script payload into the post content field designed to harvest session identifiers and exfiltrate them to the debug endpoint:
    ```html

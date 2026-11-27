@@ -15,9 +15,11 @@
 
 `TODO: migrate session cookie to httponly=true — ticket #4201 — sophie`
 Additionally, the Staff Area platform status page explicitly reports:
-"Session cookie: httponly=false"
+`"Session cookie: httponly=false"`
 
 ## Steps to Reproduce
+
+Run `exploit.sh` or follow:
 
 1. Open Darkly at `http://localhost:4942/`.
 2. Sign in with a test account, such as `jdoe`.

@@ -2,9 +2,9 @@
 
 ## Category
 
-- **OWASP WSTG-SESS-10 — Testing JSON Web Tokens**
-- **OWASP A07:2021 — Identification and Authentication Failures** (authentication compromise)
-- **OWASP A02:2021 — Cryptographic Failures** (weak or exposed signing secret)
+- **WSTG-SESS-10 — Testing JSON Web Tokens**
+- **OWASP A07:2025 — Authentication Failures**
+- **OWASP A04:2021 — Cryptographic Failures** (weak or exposed signing secret)
 
 ## Location
 

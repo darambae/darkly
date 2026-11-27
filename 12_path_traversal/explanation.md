@@ -2,7 +2,7 @@
 
 ## Category
 
-- **OWASP A01:2021 – Broken Access Control**
+- OWASP A01:2025 – Broken Access Control
 - **CWE-22 – Improper Limitation of a Pathname to a Restricted Directory**
 
 ## Location

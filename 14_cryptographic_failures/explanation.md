@@ -2,8 +2,8 @@
 
 ## Category
 
-- **OWASP A02:2021 — Cryptographic Failures** (exposure of a fast, unsalted password-derived hash)
-- **OWASP A07:2021 — Identification and Authentication Failures** (risk of account compromise through weak passwords)
+- **OWASP A04:2025 — Cryptographic Failures** (exposure of a fast, unsalted password-derived hash)
+- **OWASP A07:2025 — Authentication Failures**
 
 ## Location
 

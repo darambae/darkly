@@ -54,5 +54,4 @@ Submitting the newsletter form executes JavaScript in the submitting browser. Ex
 ## Remediation
 
 - Validate email input on the server side.
-- Continue safely escaping subscriber data in the Staff Area.
 - Implement a restrictive Content Security Policy (CSP) as an additional defense.

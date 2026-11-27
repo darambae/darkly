@@ -2,6 +2,7 @@
 
 ## Category
 
+- OWASP A01:2025 – Broken Access Control
 - OWASP A06:2025 – Insecure Design
 - CWE-915 – Improperly Controlled Modification of Dynamically-Determined Object Attributes
 - **CWE-269 – Improper Privilege Management**

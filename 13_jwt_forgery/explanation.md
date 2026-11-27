@@ -4,7 +4,7 @@
 
 - **WSTG-SESS-10 — Testing JSON Web Tokens**
 - **OWASP A07:2025 — Authentication Failures**
-- **OWASP A04:2021 — Cryptographic Failures** (weak or exposed signing secret)
+- **OWASP A04:2025 — Cryptographic Failures** (weak or exposed signing secret)
 
 ## Location
 

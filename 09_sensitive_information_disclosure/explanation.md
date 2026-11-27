@@ -2,7 +2,7 @@
 
 ## Category
 
-- **OWASP Top 10 (2021):** A05 – Security Misconfiguration
+- **OWASP A02:2025 – Security Misconfiguration**
 - **CWE-200:** Exposure of Sensitive Information to an Unauthorized Actor
 
 ## Location

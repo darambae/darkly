@@ -2,7 +2,7 @@
 
 ## Category
 
-- **OWASP A05:2025 – Security Misconfiguration**
+- **OWASP A02:2025 – Security Misconfiguration**
 - **CWE-1004 – Sensitive Cookie Without 'HttpOnly' Flag**
 - **WSTG-SESS-02 – Testing for Cookies Attributes**
 

@@ -3,7 +3,7 @@
 ## Category
 
 - **OWASP WSTG-ATHZ-04 - Insecure Direct Object References.**
-- **OWASP Top 10 A01:2021 - Broken Access Control.**
+- **OWASP Top 10 A01:2025 - Broken Access Control.**
 
 ## Location
 

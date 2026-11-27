@@ -2,9 +2,9 @@
 
 ## Category
 
-- OWASP A01:2021 – Broken Access Control
+- OWASP A06:2025 – Insecure Design
 - CWE-915 – Improperly Controlled Modification of Dynamically-Determined Object Attributes
-- CWE-269 – Improper Privilege Management
+- **CWE-269 – Improper Privilege Management**
 - WSTG-ATHZ-03 – Testing for Privilege Escalation
 
 ## Location

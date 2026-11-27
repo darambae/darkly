@@ -3,6 +3,7 @@
 ## Category
 
 - **OWASP A07:2025 – Authentication Failures.**
+- OWASP A06:2025 - Insecure Design
 - **WSTG-ATHN-09 – Weak Password Change or Reset Functionalities.**
 
 ## Location

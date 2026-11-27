@@ -2,7 +2,7 @@
 
 ## Category
 
-- **OWASP A05:2021 – Security Misconfiguration**
+- **OWASP A02:2025 – Security Misconfiguration**
 - **WSTG-INPV-07 – Testing for XML Injection**
 - **CWE-611 – Improper Restriction of XML External Entity Reference**
 

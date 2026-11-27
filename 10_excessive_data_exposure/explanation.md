@@ -24,6 +24,8 @@
 
 ## Steps to Reproduce
 
+Run `exploit.sh` or follow :
+
 1. Sign in to Darkly using a student account
 2. Navigate to `http://localhost:4942/api/grades?student=z4p1cnx47mfy50f`.(This is jdoe's id)
 3. Inspect the returned JSON array.

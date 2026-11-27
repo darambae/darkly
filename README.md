@@ -1,6 +1,6 @@
 # Darkly
 
-This repository documents a security assessment of the local Darkly web application. It contains 16 findings covering access control, authentication, injection, data exposure, session handling, and redirects. The [walkthrough](walkthrough.md) indexes every finding and records the reported result and flag status.
+This repository documents a security assessment of the local Darkly web application. It contains 16 findings covering access control, authentication, injection, data exposure, session handling, and redirects. Finding categories use [OWASP Top 10:2025](https://top10.owasp.org/2025/0x00_2025-Introduction/); WSTG and CWE references are listed separately. The [walkthrough](walkthrough.md) indexes every finding and records the reported result and flag status.
 
 ## Repository layout
 

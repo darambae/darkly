@@ -2,6 +2,7 @@
 
 ## Category
 
+- **OWASP A01:2025 – Broken Access Control**
 - **OWASP A02:2025 – Security Misconfiguration**
 - **CWE-200:** Exposure of Sensitive Information to an Unauthorized Actor
 
@@ -22,7 +23,7 @@ Run `exploit.sh` (This script will login PocketBase as admin user and change an 
 
 Or manually test following the steps:
 
-1. Reproduce the [XML External Entity Injection](../06_xml_external_entity_injection/explanation.md) and retrieve `/internal/config` through the calendar import.
+1. Reproduce the [XML External Entity Injection](../08_xml_external_entity_injection/explanation.md) and retrieve `/internal/config` through the calendar import.
 2. Observe that the configuration includes a JWT secret and PocketBase administrator credentials. Record evidence with the secret values redacted:
 
    ```json

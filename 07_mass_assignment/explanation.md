@@ -2,6 +2,7 @@
 
 ## Category
 
+- OWASP A01:2025 – Broken Access Control
 - OWASP A06:2025 – Insecure Design
 - CWE-915 – Improperly Controlled Modification of Dynamically-Determined Object Attributes
 - **CWE-269 – Improper Privilege Management**
@@ -15,7 +16,7 @@
 
 While exploring the `/staff` page, the following message was found:
 
-"Cadet access required. Try PATCH /api/profile with the right fields."
+`"Cadet access required. Try PATCH /api/profile with the right fields."`
 
 This suggested that the profile update endpoint might allow users to modify sensitive attributes, including their authorization role.
 

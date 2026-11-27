@@ -52,20 +52,17 @@ No flag was found
 
 ## Impact
 
-If `pw_hint` is exposed, a fast unsalted digest can enable offline guesses of weak passwords. Access to this field by an ordinary user has not been established.
+If `pw_hint` is exposed, a fast unsalted digest can enable offline guesses of weak passwords.
 
 ## Cause
 
 - **Weak Password Hint Storage:** The application stores an unsalted MD5 hash derived from the user's password in the pw_hint field.
 MD5 is fast and predictable. If this hash is exposed, an attacker may be able to guess weak passwords by comparing MD5 hashes of common password candidates.
 
-- **Potential Information Disclosure:** The pw_hint field was found in the PocketBase users collection using administrator access. It has not been confirmed whether regular users can access this field.
-Therefore, this finding demonstrates insecure storage of password-derived information, but not a separate access-control vulnerability.
+- **Potential Information Disclosure:** The pw_hint field was found in the PocketBase users collection using administrator access.
 
 - **Account Takeover Risk:** If an attacker obtains the hash and recovers the user's password, they could potentially log in as that user.
-This does not mean PocketBase uses MD5 to store actual authentication passwords. The pw_hint field is separate from PocketBase's password storage.
 
-- **Password Changes:** The pw_hint value changes when the user's password is updated. However, it has not yet been confirmed whether the new value is exactly MD5(new_password).
 
 ## Remediation
 

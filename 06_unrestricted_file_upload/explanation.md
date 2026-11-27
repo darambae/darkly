@@ -2,8 +2,8 @@
 
 ## Category
 
-- **OWASP A05:2025 – Injection**
 - **OWASP A06:2025 – Insecure Design**
+- **CWE-434 – Unrestricted Upload of File with Dangerous Type**
 - **WSTG-BUSL-08 Test Upload of Unexpected File Types**
 
 ## Location

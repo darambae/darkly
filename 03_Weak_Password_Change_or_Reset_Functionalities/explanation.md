@@ -13,8 +13,8 @@
 ## Discovery
 
 In the Benjamin's post on Forum, he gave a hint about resetting passwords.
-http://localhost:4942/forum/r8y1ib6ub8g47u2
-"And get this: that token is literally the md5 of my email address."
+`http://localhost:4942/forum/r8y1ib6ub8g47u2`
+`"And get this: that token is literally the md5 of my email address."`
 
 ## Steps to Reproduce
 
@@ -39,5 +39,3 @@ The application utilized a static, deterministic hashing function (MD5) directly
 - **CSPRNG Tokens:** Generate reset tokens using a cryptographically secure pseudo-random number generator (CSPRNG) with high entropy (e.g., UUIDv4 or 32+ bytes of random data).
 - **Single-Use & Short-Lived:** Enforce strict expiration windows (e.g., 15 minutes) and invalidate tokens immediately upon use.
 - **Token Hashing:** Store only cryptographic hashes of active reset tokens in the database.
-- **Rate Limiting:** Implement strict throttling on reset request routes to mitigate account enumeration and abuse.
-- **Out-of-Band Verification:** Deliver tokens exclusively through verified recovery channels (e.g., registered email) and avoid exposing them through client-side application state or predictable functions.

@@ -13,7 +13,7 @@ Navigation, HTML comments, browser behavior, and `robots.txt` supplied leads. In
 | # | Finding | Documented observation | Flag |
 | --- | --- | --- | --- |
 | 01 | [Insecure direct object references](01_insecure_direct_object_references/explanation.md) | Another user's private profile note was readable from a profile URL. | `FLAG{1d0r_ur_pr0f1l3_1s_m1n3}` |
-| 02 | [Identification and authentication failures](02_Identification_and_Authentication_Failures/explanation.md) | The password reset flow disclosed its reset token to the requester without verifying email ownership. | None |
+| 02 | [Identification and authentication failures](02_Authentication_Failures/explanation.md) | The password reset flow disclosed its reset token to the requester without verifying email ownership. | None |
 | 03 | [Weak password reset token](03_Weak_Password_Change_or_Reset_Functionalities/explanation.md) | A token derived from MD5 of the user's email could be predicted and used to reset the password. | `FLAG{r3s3t_t0k3n_w4s_just_md5_lol}` |
 | 04 | [Session cookie without HttpOnly](04_security_misconfiguration/explanation.md) | Browser JavaScript could read the `session` cookie. | None |
 | 05 | [Stored cross-site scripting](05_stored_xss/explanation.md) | A forum post executed stored JavaScript; the documented payload sent a readable session cookie to `/api/collect`. | `FLAG{xss_st0r3d_1s_n0t_4_f34tur3_w1l}` |
@@ -31,4 +31,4 @@ Navigation, HTML comments, browser behavior, and `robots.txt` supplied leads. In
 
 ## Reproduction notes
 
-Start with each linked explanation, then run its script from that finding's directory. Several scripts use the session cookie created by [finding 02](02_Identification_and_Authentication_Failures/explanation.md); findings 10 and 13 generate their own role cookies.
+Start with each linked explanation, then run its script from that finding's directory. Several scripts use the session cookie created by [finding 02](02_Authentication_Failures/explanation.md); findings 10 and 13 generate their own role cookies.

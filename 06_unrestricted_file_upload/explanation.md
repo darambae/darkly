@@ -2,8 +2,8 @@
 
 ## Category
 
-- **OWASP A03:2021 – Injection**
-- **OWASP A04:2021 – Insecure Design**
+- **OWASP A05:2025 – Injection**
+- **OWASP A06:2025 – Insecure Design**
 - **WSTG-BUSL-08 Test Upload of Unexpected File Types**
 
 ## Location

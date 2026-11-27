@@ -2,9 +2,11 @@
 
 ## Category
 
-- OWASP A01:2021 – Broken Access Control
-- OWASP A04:2021 – Insecure Design / Excessive Data Exposure
+- OWASP A01:2025 – Broken Access Control
 - WSTG-ATHZ-02 – Testing for Bypassing Authorization Schema
+- WSTG-ATHZ-04 – Testing for Insecure Direct Object References
+- CWE-862 – Missing Authorization            
+- CWE-639 – Authorization Bypass Through User-Controlled Key
 - CWE-200 – Exposure of Sensitive Information to an Unauthorized Actor
 
 ## Location

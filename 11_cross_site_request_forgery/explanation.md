@@ -2,9 +2,9 @@
 
 ## Category
 
-- **OWASP WSTG-SESS-05 — Testing for Cross Site Request Forgery**
+- **WSTG-SESS-05 — Testing for Cross Site Request Forgery**
 - **CWE-352 — Cross-Site Request Forgery**
-- **OWASP A01:2021 — Broken Access Control**
+- OWASP A01:2025 — Broken Access Control
 
 ## Location
 

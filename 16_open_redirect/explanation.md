@@ -2,8 +2,7 @@
 
 ## Category
 - OWASP A01:2025 – Broken Access Control
-- CWE-601 – URL Redirection to Untrusted Site
-- OWASP WSTG – Testing for Server-side URL Redirect
+- **CWE-601 – URL Redirection to Untrusted Site**
 
 ## Location
 - `http://localhost:4942/redirect?next=`

@@ -1,10 +1,11 @@
-# Identification and Authentication Failures
+# Authentication Failures
 
 ## Category
 
-OWASP A07:2021 – Identification and Authentication Failures.
-WSTG-ATHN-09 – Weak Password Change or Reset Functionalities.
-CWE-640 – Weak Password Recovery Mechanism for Forgotten Password.
+- **OWASP A07:2025 – Authentication Failures.**
+- OWASP A06:2025 – Insecure Design.
+- WSTG-ATHN-09 – Weak Password Change or Reset Functionalities.
+- CWE-640 – Weak Password Recovery Mechanism for Forgotten Password.
 
 ## Location
 

@@ -2,7 +2,7 @@
 
 ## Category
 
-- **OWASP A03:2021 — Injection**
+- **OWASP A05:2025 — Injection**
 - **WSTG 4.7 — Stored XSS**
 
 ## Location

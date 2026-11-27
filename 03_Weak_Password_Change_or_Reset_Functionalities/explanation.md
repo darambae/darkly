@@ -2,7 +2,7 @@
 
 ## Category
 
-- **OWASP A07:2021 – Identification and Authentication Failures.**
+- **OWASP A07:2025 – Authentication Failures.**
 - **WSTG-ATHN-09 – Weak Password Change or Reset Functionalities.**
 
 ## Location

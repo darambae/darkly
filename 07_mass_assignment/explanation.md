@@ -15,7 +15,7 @@
 
 While exploring the `/staff` page, the following message was found:
 
-"Cadet access required. Try PATCH /api/profile with the right fields."
+`"Cadet access required. Try PATCH /api/profile with the right fields."`
 
 This suggested that the profile update endpoint might allow users to modify sensitive attributes, including their authorization role.
 

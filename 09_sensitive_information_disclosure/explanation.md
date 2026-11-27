@@ -53,12 +53,10 @@ Or manually test following the steps:
 
 ## Cause
 
-- Insecure XML Parsing: The calendar import allowed external entity resolution (XXE).
 - Exposed Internal Configuration: The /internal/config route returned sensitive administrative secrets without authentication, relying solely on weak network boundaries (127.0.0.1).
 
 ## Remediation
 
-- **Harden XML Parsing:** Use secure parsers (e.g., defusedxml) and disable DTDs/external entity resolution.
 - **Secure Configuration Management:** Remove credentials and signing secrets from application endpoints; utilize secure runtime secret stores.
 - **Credential Rotation:** Immediately rotate exposed administrator passwords and JWT secrets, and invalidate active sessions.
 - **Access Control:** Restrict administrative interfaces to trusted networks and operators with strong authentication.

@@ -1,20 +1,18 @@
 # Darkly
 
-This repository documents a security assessment of the local Darkly web application, covering authentication, access control, injection, data exposure, and other web security issues.
+This repository documents a security assessment of the local Darkly web application. It contains 16 findings covering access control, authentication, injection, data exposure, session handling, and redirects. The [walkthrough](walkthrough.md) indexes every finding and records the reported result and flag status.
 
-The numbered directories (`01_...` through `16_...`) each document one finding. For example:
+## Repository layout
 
-```text
-12_path_traversal/
-├── explanation.md   # Finding, reproduction steps, impact, and remediation
-├── exploit.sh       # Script to reproduce the finding
-├── FLAG             # Challenge flag, when one was found
-└── Resources/       # Supporting evidence or test files
+- `01_...` through `16_...`: one finding per numbered directory. Every directory has an `explanation.md` and an `exploit.sh`. Ten also have a `FLAG` file. Evidence and payloads live in `Resources/`, except for the upload payload in `06_unrestricted_file_upload/Resource/`.
+- [`reconnaissance/`](reconnaissance/reconnaissance_notes.txt): initial leads and HTML source notes. These notes include hypotheses; use the numbered findings for documented results.
+- [`pre-requisite.sh`](pre-requisite.sh): checks for the required commands in your system to run `exploit.sh`. Run `bash pre-requisite.sh` from the repository root.
+
+- [`en.subject.pdf`](en.subject.pdf): project brief.
+
+## Reproducing findings in the local lab
+
+Start the Darkly lab at `http://localhost:4942` before making requests. Findings 09 and 14 also use PocketBase at `http://localhost:8090`.
+
+Read a finding's `explanation.md` before running its script. Run scripts **from their own directory**, because several use relative paths for payloads and cookie jars. Follow the number of folders to reproduce the breach for dependencies. 
 ```
-
-Every finding has an `explanation.md`; scripts, flags, and resource folders are included where applicable. Read a finding's explanation before running its script against the local lab.
-
-To run the scripts, `curl` and `jq` commands should be installed.
-Run `./pre-requisite.sh` to check if the two commands are installed, otherwise this script will install them.
-
-The [walkthrough](walkthrough.md) summarizes the findings and results in one place. [`reconnaissance/`](reconnaissance/reconnaissance_notes.txt) contains initial observations and leads, while [`en.subject.pdf`](en.subject.pdf) is the project brief.

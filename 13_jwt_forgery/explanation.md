@@ -21,7 +21,7 @@ However, when a token is created with another test user's known account informat
 
 ## Steps to Reproduce
 
-Run `./exploit.sh` (This script creates jwt files(`Resources/<ROLE>-cookie.txt`) with the information from `users.json` found in the darkly website and change the role of an user using `<ROLE>-cookie.txt`.)
+Run `./exploit.sh`. Its cookie generator first fetches `GET /api/users` and saves the response to `Resources/users.json`, then creates `Resources/<ROLE>-cookie.txt` files from those users. The exploit sends a profile role-change request with one generated cookie.
 
 ## Flag
 
@@ -45,4 +45,3 @@ An accepted forged JWT can impersonate another user and may allow requests under
 - Validate `exp`, `nbf`, `iss`, and `aud` when applicable, plus application-specific claims.
 - Treat `role` in a JWT as trusted only after verification; consider checking current permissions server-side for sensitive actions.
 - Enforce server-side authorization for every resource and action, independent of a valid token.
-- Use `HttpOnly`, `Secure`, and appropriate `SameSite` settings for session cookies (separate defense-in-depth findings).
